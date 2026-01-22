@@ -5,159 +5,254 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrie's Portfolio</title>
     
+    <!-- TailwindCSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <style>
         html {
             scroll-behavior: smooth;
         }
+        
+        /* アコーディオンのトグル */
+        .accordion-content {
+            max-height: 5000px;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .accordion-content.closed {
+            max-height: 0;
+        }
     </style>
 </head>
-
 <body class="bg-slate-50">
 
+    <!-- Fixed Header Navigation -->
     <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-50">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-xl font-bold text-slate-900">Carrie's Portfolio</div>
-            <ul class="flex gap-8 text-sm font-medium">
+            <ul class="flex gap-8 text-sm font-medium uppercase tracking-wider">
                 <li><a href="#about" class="text-slate-600 hover:text-blue-600 transition">About</a></li>
+                <li><a href="#experience" class="text-slate-600 hover:text-blue-600 transition">Experience</a></li>
                 <li><a href="#skills" class="text-slate-600 hover:text-blue-600 transition">Skills</a></li>
-                <li><a href="#projects" class="text-slate-600 hover:text-blue-600 transition">Projects</a></li>
+                <li><a href="#works" class="text-slate-600 hover:text-blue-600 transition">Works</a></li>
                 <li><a href="#contact" class="text-slate-600 hover:text-blue-600 transition">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <header id="about" class="pt-32 pb-20 px-6 bg-white mt-16">
-        <div class="max-w-5xl mx-auto text-center">
-            <h1 class="text-5xl font-bold text-slate-900 mb-4">Carrie's Portfolio</h1>
-            <p class="text-xl text-slate-600 mb-8">Product Manager / Business Analyst / Shopify Developer</p>
-            <div class="max-w-3xl mx-auto text-lg text-slate-700 leading-relaxed">
-                <p>15年以上のIT業界経験を持つプロダクトマネージャー。<br>
-                要件定義からプロジェクトリード、実装まで一貫して対応可能な、<br>
-                <strong>上流視点を持つエンジニア × 実装視点を持つ上流プロフェッショナル</strong></p>
-            </div>
-        </div>
-    </header>
+    <!-- Main Content -->
+    <div class="pt-24 pb-16">
+        <div class="max-w-4xl mx-auto px-6">
+            
+            <!-- Page Title -->
+            <h1 class="text-5xl font-bold text-slate-900 mb-16 text-center">Carrie's Portfolio</h1>
+            
+            <!-- Table of Contents -->
+            <nav class="mb-20 bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
+                <ul class="space-y-2 text-lg">
+                    <li><a href="#about" class="text-slate-700 hover:text-blue-600 transition uppercase tracking-wide">About</a></li>
+                    <li><a href="#experience" class="text-slate-700 hover:text-blue-600 transition uppercase tracking-wide">Experience</a></li>
+                    <li><a href="#skills" class="text-slate-700 hover:text-blue-600 transition uppercase tracking-wide">Skills</a></li>
+                    <li><a href="#works" class="text-slate-700 hover:text-blue-600 transition uppercase tracking-wide">Works</a></li>
+                    <li><a href="#contact" class="text-slate-700 hover:text-blue-600 transition uppercase tracking-wide">Contact</a></li>
+                </ul>
+            </nav>
 
-<section id="skills" class="py-32 px-6 bg-white">
-    <div class="max-w-5xl mx-auto">
-        <h2 class="text-sm font-bold tracking-[0.3em] text-blue-600 uppercase mb-16 text-center">Skills & Experience</h2>
-        
-        <div class="space-y-20">
-            <!-- PM/BA Section -->
-            <div>
-                <h3 class="text-2xl font-bold mb-8 flex items-center">
-                    <span class="w-8 h-[2px] bg-blue-600 mr-4"></span>
-                    Product Management / Business Analysis
-                </h3>
-                
-                <!-- Desktop Table -->
-                <div class="hidden md:block overflow-hidden rounded-2xl border border-slate-100 shadow-sm">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="bg-slate-50 border-b border-slate-100 text-[10px] font-bold uppercase tracking-widest text-slate-400">
-                                <th class="px-8 py-4">スキル</th>
-                                <th class="px-8 py-4 text-center">経験年数</th>
-                                <th class="px-8 py-4 text-right">レベル</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-slate-600">
-                            <tr class="border-b border-slate-50 hover:bg-slate-50/50 transition">
-                                <td class="px-8 py-6 font-bold text-slate-900">要件定義・プロジェクトリード</td>
-                                <td class="px-8 py-6 text-center font-medium">15年</td>
-                                <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★★★</td>
-                            </tr>
-                            <tr class="border-b border-slate-50 hover:bg-slate-50/50 transition">
-                                <td class="px-8 py-6 font-bold text-slate-900">ステークホルダー管理</td>
-                                <td class="px-8 py-6 text-center font-medium">15年</td>
-                                <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★★★</td>
-                            </tr>
-                            <tr class="border-b border-slate-50 hover:bg-slate-50/50 transition">
-                                <td class="px-8 py-6 font-bold text-slate-900">プロジェクトマネジメント</td>
-                                <td class="px-8 py-6 text-center font-medium">15年</td>
-                                <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★★★</td>
-                            </tr>
-                            <tr class="border-b border-slate-50 hover:bg-slate-50/50 transition">
-                                <td class="px-8 py-6 font-bold text-slate-900">EC/D2C プロジェクト</td>
-                                <td class="px-8 py-6 text-center font-medium">10年以上</td>
-                                <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★★★</td>
-                            </tr>
-                            <tr class="hover:bg-slate-50/50 transition">
-                                <td class="px-8 py-6 font-bold text-slate-900">国際ベンダー調整</td>
-                                <td class="px-8 py-6 text-center font-medium">10年以上</td>
-                                <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★★★</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <!-- Mobile Cards -->
-                <div class="md:hidden space-y-4">
-                    <div class="bg-white rounded-xl border border-slate-100 p-6 shadow-sm">
-                        <h4 class="font-bold text-slate-900 mb-3">要件定義・プロジェクトリード</h4>
-                        <div class="flex justify-between text-sm mb-2">
-                            <span class="text-slate-600">経験年数</span>
-                            <span class="font-medium">15年</span>
-                        </div>
-                        <div class="flex justify-between text-sm">
-                            <span class="text-slate-600">レベル</span>
-                            <span class="text-amber-500 font-bold tracking-wider">★★★★★</span>
+            <!-- ABOUT Section -->
+            <section id="about" class="mb-12">
+                <div class="border-t-2 border-slate-300 pt-8">
+                    <button onclick="toggleAccordion('about-content')" class="w-full flex justify-between items-center text-left mb-6">
+                        <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—About</h2>
+                        <span class="accordion-icon text-2xl text-slate-600">−</span>
+                    </button>
+                    
+                    <div id="about-content" class="accordion-content">
+                        <div class="bg-white rounded-xl border border-slate-200 p-10 shadow-sm">
+                            <!-- Summary Title -->
+                            <p class="text-xl font-semibold text-blue-600 mb-8 text-center">
+                                戦略から実装まで。上流 × 技術のプロフェッショナル
+                            </p>
+                            
+                            <!-- Profile Image -->
+                            <div class="flex justify-center mb-8">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Ccircle cx='60' cy='60' r='60' fill='%23FFA500'/%3E%3Ccircle cx='60' cy='45' r='20' fill='%23FFE4B5'/%3E%3Cpath d='M 30 95 Q 60 75 90 95' fill='%23FFE4B5'/%3E%3Ccircle cx='50' cy='42' r='3' fill='%23333'/%3E%3Ccircle cx='70' cy='42' r='3' fill='%23333'/%3E%3Cpath d='M 50 55 Q 60 60 70 55' stroke='%23333' stroke-width='2' fill='none'/%3E%3C/svg%3E" 
+                                     alt="Profile" 
+                                     class="w-32 h-32 rounded-full border-4 border-slate-100 shadow-md">
+                            </div>
+                            
+                            <!-- Lorem Ipsum Text -->
+                            <div class="space-y-6 text-slate-700 leading-relaxed">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                </p>
+                                <p>
+                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <!-- 他のスキルも同様に -->
                 </div>
-            </div>
+            </section>
 
-            <!-- Development Section -->
-            <div>
-                <h3 class="text-2xl font-bold mb-8 flex items-center">
-                    <span class="w-8 h-[2px] bg-blue-600 mr-4"></span>
-                    Development
-                </h3>
-                
-                <!-- Desktop Table -->
-                <div class="hidden md:block overflow-hidden rounded-2xl border border-slate-100 shadow-sm">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="bg-slate-50 border-b border-slate-100 text-[10px] font-bold uppercase tracking-widest text-slate-400">
-                                <th class="px-8 py-4">技術</th>
-                                <th class="px-8 py-4 text-center">経験年数</th>
-                                <th class="px-8 py-4 text-right">レベル</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-slate-600">
-                            <tr class="border-b border-slate-50 hover:bg-slate-50/50 transition">
-                                <td class="px-8 py-6 font-bold text-slate-900">Shopify (Liquid, CLI)</td>
-                                <td class="px-8 py-6 text-center font-medium">1年</td>
-                                <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★★☆</td>
-                            </tr>
-                            <tr class="border-b border-slate-50 hover:bg-slate-50/50 transition">
-                                <td class="px-8 py-6 font-bold text-slate-900">TailwindCSS</td>
-                                <td class="px-8 py-6 text-center font-medium">1年</td>
-                                <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★★☆</td>
-                            </tr>
-                            <tr class="border-b border-slate-50 hover:bg-slate-50/50 transition">
-                                <td class="px-8 py-6 font-bold text-slate-900">JavaScript / Alpine.js</td>
-                                <td class="px-8 py-6 text-center font-medium">2年</td>
-                                <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★★☆</td>
-                            </tr>
-                            <tr class="border-b border-slate-50 hover:bg-slate-50/50 transition">
-                                <td class="px-8 py-6 font-bold text-slate-900">Ruby on Rails</td>
-                                <td class="px-8 py-6 text-center font-medium">経験あり</td>
-                                <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★☆☆</td>
-                            </tr>
-                            <tr class="hover:bg-slate-50/50 transition">
-                                <td class="px-8 py-6 font-bold text-slate-900">WordPress / PHP</td>
-                                <td class="px-8 py-6 text-center font-medium">経験あり</td>
-                                <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★☆☆</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <!-- EXPERIENCE Section -->
+            <section id="experience" class="mb-12">
+                <div class="border-t-2 border-slate-300 pt-8">
+                    <button onclick="toggleAccordion('experience-content')" class="w-full flex justify-between items-center text-left mb-6">
+                        <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—Experience</h2>
+                        <span class="accordion-icon text-2xl text-slate-600">−</span>
+                    </button>
+                    
+                    <div id="experience-content" class="accordion-content">
+                        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-50 border-b border-slate-200">
+                                        <th class="px-8 py-4 text-xs font-bold uppercase tracking-widest text-slate-400">スキル</th>
+                                        <th class="px-8 py-4 text-xs font-bold uppercase tracking-widest text-slate-400 text-center">経験年数</th>
+                                        <th class="px-8 py-4 text-xs font-bold uppercase tracking-widest text-slate-400 text-right">レベル</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-slate-600">
+                                    <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
+                                        <td class="px-8 py-6 font-bold text-slate-900">要件定義・プロジェクトリード</td>
+                                        <td class="px-8 py-6 text-center font-medium">15年</td>
+                                        <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★★★</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
+                                        <td class="px-8 py-6 font-bold text-slate-900">ステークホルダー管理</td>
+                                        <td class="px-8 py-6 text-center font-medium">15年</td>
+                                        <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★★★</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
+                                        <td class="px-8 py-6 font-bold text-slate-900">プロジェクトマネジメント</td>
+                                        <td class="px-8 py-6 text-center font-medium">15年</td>
+                                        <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★★★</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
+                                        <td class="px-8 py-6 font-bold text-slate-900">EC/D2C プロジェクト</td>
+                                        <td class="px-8 py-6 text-center font-medium">10年以上</td>
+                                        <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★★★</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 transition">
+                                        <td class="px-8 py-6 font-bold text-slate-900">国際ベンダー調整</td>
+                                        <td class="px-8 py-6 text-center font-medium">10年以上</td>
+                                        <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★★★</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-                
-                <!-- Mobile Cards (同様に実装) -->
-            </div>
+            </section>
+
+            <!-- SKILLS Section -->
+            <section id="skills" class="mb-12">
+                <div class="border-t-2 border-slate-300 pt-8">
+                    <button onclick="toggleAccordion('skills-content')" class="w-full flex justify-between items-center text-left mb-6">
+                        <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—Skills</h2>
+                        <span class="accordion-icon text-2xl text-slate-600">−</span>
+                    </button>
+                    
+                    <div id="skills-content" class="accordion-content">
+                        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-50 border-b border-slate-200">
+                                        <th class="px-8 py-4 text-xs font-bold uppercase tracking-widest text-slate-400">技術</th>
+                                        <th class="px-8 py-4 text-xs font-bold uppercase tracking-widest text-slate-400 text-center">経験年数</th>
+                                        <th class="px-8 py-4 text-xs font-bold uppercase tracking-widest text-slate-400 text-right">レベル</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-slate-600">
+                                    <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
+                                        <td class="px-8 py-6 font-bold text-slate-900">Shopify (Liquid, CLI)</td>
+                                        <td class="px-8 py-6 text-center font-medium">1年</td>
+                                        <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★★☆</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
+                                        <td class="px-8 py-6 font-bold text-slate-900">TailwindCSS</td>
+                                        <td class="px-8 py-6 text-center font-medium">1年</td>
+                                        <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★★☆</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
+                                        <td class="px-8 py-6 font-bold text-slate-900">JavaScript / Alpine.js</td>
+                                        <td class="px-8 py-6 text-center font-medium">2年</td>
+                                        <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★★☆</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
+                                        <td class="px-8 py-6 font-bold text-slate-900">Ruby on Rails</td>
+                                        <td class="px-8 py-6 text-center font-medium">経験あり</td>
+                                        <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★☆☆</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 transition">
+                                        <td class="px-8 py-6 font-bold text-slate-900">WordPress / PHP</td>
+                                        <td class="px-8 py-6 text-center font-medium">経験あり</td>
+                                        <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★☆☆</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WORKS Section -->
+            <section id="works" class="mb-12">
+                <div class="border-t-2 border-slate-300 pt-8">
+                    <button onclick="toggleAccordion('works-content')" class="w-full flex justify-between items-center text-left mb-6">
+                        <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—Works</h2>
+                        <span class="accordion-icon text-2xl text-slate-600">−</span>
+                    </button>
+                    
+                    <div id="works-content" class="accordion-content">
+                        <div class="bg-white rounded-xl border border-slate-200 p-10 shadow-sm text-center">
+                            <p class="text-slate-500 italic text-lg">Coming soon...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONTACT Section -->
+            <section id="contact" class="mb-12">
+                <div class="border-t-2 border-slate-300 pt-8">
+                    <button onclick="toggleAccordion('contact-content')" class="w-full flex justify-between items-center text-left mb-6">
+                        <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—Contact</h2>
+                        <span class="accordion-icon text-2xl text-slate-600">−</span>
+                    </button>
+                    
+                    <div id="contact-content" class="accordion-content">
+                        <div class="bg-white rounded-xl border border-slate-200 p-10 shadow-sm text-center">
+                            <p class="text-slate-500 italic text-lg">Placeholder</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </div>
     </div>
-</section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 bg-slate-900 text-slate-400 text-center text-sm">
+        <p>&copy; 2026 Carrie's Portfolio. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Accordion -->
+    <script>
+        function toggleAccordion(contentId) {
+            const content = document.getElementById(contentId);
+            const button = content.previousElementSibling;
+            const icon = button.querySelector('.accordion-icon');
+            
+            content.classList.toggle('closed');
+            
+            if (content.classList.contains('closed')) {
+                icon.textContent = '+';
+            } else {
+                icon.textContent = '−';
+            }
+        }
+    </script>
+
+</body>
+</html>
