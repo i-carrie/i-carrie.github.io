@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrie's Portfolio</title>
-    
-    <!-- TailwindCSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
+    <link href="./output.css" rel="stylesheet">
+    <title>Carrie's Portfolio</title>  
     <style>
         html {
             scroll-behavior: smooth;
@@ -70,24 +67,33 @@
                     <div id="about-content" class="accordion-content">
                         <div class="bg-white rounded-xl border border-slate-200 p-10 shadow-sm">
                             <!-- Summary Title -->
-                            <p class="text-xl font-semibold text-blue-600 mb-8 text-center">
-                                戦略から実装まで。上流 × 技術のプロフェッショナル
+                            <p class="text-xl text-gray-600 mb-8 text-center">
+                                ご相談から開発・実装、成長までの一貫したサービスを提供。<br>
+                                <span class="text-xl font-semibold text-gray-600 text-center">
+                                    コンサルティング × 技術 x グロースのプロフェッショナル</span>
                             </p>
                             
                             <!-- Profile Image -->
-                            <div class="flex justify-center mb-8">
+                            <!-- <div class="flex justify-center mb-8">
                                 <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Ccircle cx='60' cy='60' r='60' fill='%23FFA500'/%3E%3Ccircle cx='60' cy='45' r='20' fill='%23FFE4B5'/%3E%3Cpath d='M 30 95 Q 60 75 90 95' fill='%23FFE4B5'/%3E%3Ccircle cx='50' cy='42' r='3' fill='%23333'/%3E%3Ccircle cx='70' cy='42' r='3' fill='%23333'/%3E%3Cpath d='M 50 55 Q 60 60 70 55' stroke='%23333' stroke-width='2' fill='none'/%3E%3C/svg%3E" 
                                      alt="Profile" 
                                      class="w-32 h-32 rounded-full border-4 border-slate-100 shadow-md">
+                            </div> -->
+                            <div class="flex justify-center mb-8 w-full">
+                                <img src="https://github.com/user-attachments/assets/938fb286-e12f-4ce5-801e-4f5828d2b213" 
+                                    alt="Carrie" 
+                                    class="w-32 h-32 rounded-full border-4 border-slate-100 shadow-md object-cover">
                             </div>
+
+
                             
                             <!-- Lorem Ipsum Text -->
                             <div class="space-y-6 text-slate-700 leading-relaxed">
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    主に小売業界にて、ECサイト、モバイルアプリ、業務システムに、プロダクトマネージャー、プロジェクトマネージャー、ビジネスアナリスト、エンジニアとして20年以上携わる ーービジネス戦略の立案、ロードマップ策定、要件定義から開発・実装、そしてリリース後のデータ分析と継続的な改善まで、一貫してリード。段階的に動くものをリリースし、効果を測りながら柔軟に機能開発の優先順位を変え、このプロセスを繰り返しながらプロダクトを成長させてきました。
                                 </p>
                                 <p>
-                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                                    海外留学と外資系企業での実務経験で培った国際的な視点を持つ ーー言葉や文化の違い、ポジションの違いを超え、様々な方々との円滑なコミュニケーションを図れることは強みの１つです。戦略的思考力、状況に応じた柔軟な判断力、そして社内外、国内外の関係者を巻き込むリーダーシップで、スピード感を持ってプロジェクトを推進し、困難な局面でも諦めずにやり抜く力で、チームと共にプロジェクトの成功に貢献してきました。
                                 </p>
                             </div>
                         </div>
@@ -108,36 +114,43 @@
                             <table class="w-full text-left border-collapse">
                                 <thead>
                                     <tr class="bg-slate-50 border-b border-slate-200">
-                                        <th class="px-8 py-4 text-xs font-bold uppercase tracking-widest text-slate-400">スキル</th>
-                                        <th class="px-8 py-4 text-xs font-bold uppercase tracking-widest text-slate-400 text-center">経験年数</th>
-                                        <th class="px-8 py-4 text-xs font-bold uppercase tracking-widest text-slate-400 text-right">レベル</th>
+                                        <th class="px-8 py-4 text-xs font-bold uppercase tracking-widest text-slate-400">カテゴリ</th>
+                                        <th class="px-8 py-4 text-xs font-bold uppercase tracking-widest text-slate-400 text-center">スキル</th>
+                                        <th class="px-8 py-4 text-xs font-bold uppercase tracking-widest text-slate-400 text-right">経験年数</th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-slate-600">
                                     <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
-                                        <td class="px-8 py-6 font-bold text-slate-900">要件定義・プロジェクトリード</td>
-                                        <td class="px-8 py-6 text-center font-medium">15年</td>
-                                        <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★★★</td>
+                                        <td class="px-8 py-6 font-bold text-base align-top">プロダクトマネジメント</td>
+                                        <td class="px-8 py-6 text-left text-sm">
+                                            プロダクトビジョン策定、ロードマップ作成、KPI設計、<br>
+                                            要件定義、機能優先順位の最適化、UX設計、SaaS選定、<br>
+                                            プロダクトグロース戦略
+                                        </td>
+                                        <td class="px-8 py-6 text-center text-sm align-top">5年</td>
                                     </tr>
                                     <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
-                                        <td class="px-8 py-6 font-bold text-slate-900">ステークホルダー管理</td>
-                                        <td class="px-8 py-6 text-center font-medium">15年</td>
-                                        <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★★★</td>
+                                        <td class="px-8 py-6 font-bold text-base align-top">プロジェクトマネジメント</td>
+                                        <td class="px-8 py-6 text-left text-sm">
+                                            RFP策定、プロジェクトチャーター策定、プランニング・<br>
+                                            スケジューリング、WBS策定、進捗・リソース管理、<br>
+                                            リスク管理、要件定義、外部ベンダーコントロール、<br>
+                                            ステークホルダーマネジメント</td>
+                                        <td class="px-8 py-6 text-center text-sm align-top">10年</td>
                                     </tr>
                                     <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
-                                        <td class="px-8 py-6 font-bold text-slate-900">プロジェクトマネジメント</td>
-                                        <td class="px-8 py-6 text-center font-medium">15年</td>
-                                        <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★★★</td>
+                                        <td class="px-8 py-6 font-bold text-base align-top">ビジネスアナリシス</td>
+                                        <td class="px-8 py-6 text-left text-sm">
+                                            要求・要件定義、現状分析（AS-IS）／ 改修後（TO-BE）<br>
+                                            分析、Gap分析、業務フロー等の作成、基本設計、
+                                            <br>システム選定、改善提案、業務プロセス最適化、パッケージ・
+                                            <br>ソリューション選定</td>
+                                        <td class="px-8 py-6 text-center text-sm align-top">10年</td>
                                     </tr>
                                     <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
-                                        <td class="px-8 py-6 font-bold text-slate-900">EC/D2C プロジェクト</td>
-                                        <td class="px-8 py-6 text-center font-medium">10年以上</td>
-                                        <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★★★</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50/50 transition">
-                                        <td class="px-8 py-6 font-bold text-slate-900">国際ベンダー調整</td>
-                                        <td class="px-8 py-6 text-center font-medium">10年以上</td>
-                                        <td class="px-8 py-6 text-right text-amber-500 tracking-widest font-bold">★★★★★</td>
+                                        <td class="px-8 py-6 font-bold text-base align-top">エンジニアリング</td>
+                                        <td class="px-8 py-6 text-left text-sm">基本設計、詳細設計、実装・開発、テスト・デバッグ</td>
+                                        <td class="px-8 py-6 text-center text-sm align-top">6年</td>
                                     </tr>
                                 </tbody>
                             </table>
