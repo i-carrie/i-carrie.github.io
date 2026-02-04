@@ -6,6 +6,9 @@ on:
 
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     permissions:
       pages: write
@@ -16,8 +19,8 @@ jobs:
 
       - name: Replace secrets
         run: |
-          sed -i 's/___AUTH_SECRET_PLACEHOLDER___/${{ secrets.MY_AUTH_SECRET }}/g' index.html
-          sed -i 's/___AUTH_MAIL_PLACEHOLDER___/${{ secrets.MY_AUTH_MAIL }}/g' index.html
+          sed -i 's|___AUTH_SECRET_PLACEHOLDER___|${{ secrets.MY_AUTH_SECRET }}|g' index.html
+          sed -i 's|___AUTH_MAIL_PLACEHOLDER___|${{ secrets.MY_AUTH_MAIL }}|g' index.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
