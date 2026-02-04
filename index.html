@@ -452,8 +452,22 @@
                                             Shopifyスクラッチ開発
                                         </td>
                                         <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
+
                                             ナチュラルな素材を使った癒やしの<br>Room/Bathグッズ仮想ショップ<br><br>
-                                            <a href="#" class="link-custom">詳細はこちらへ</a>
+                                            <!-- トグルボタン -->
+                                            <button onclick="toggleVideo('yourday-video', this)" class="text-xs link-custom cursor-pointer mb-2 hover:underline">
+                                                ✕ 動画を非表示にする
+                                            </button>
+                                            <br>
+                                            
+                                            <!-- 動画（idが必要！） -->
+                                            <a id="yourday-video" href="assets/videos/yourday-PC.mp4" target="_blank">
+                                                <video width="320" autoplay muted loop class="cursor-pointer">
+                                                    <source src="assets/videos/yourday-PC.mp4" type="video/mp4">
+                                                </video>
+                                            </a>
+
+
                                         </td>
 
                                         <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
@@ -461,17 +475,19 @@
                                             <div class="flex items-start gap-1 mb-4">
                                                 <span class="text-sm text-slate-600">
                                                     動画:(パスワード不要)<br>・
-                                                    <a href="#" target="_blank" class="link-custom">ショップ</a><br>・
-                                                    <a href="#" target="_blank" class="link-custom">エディター</a>
+                                                    <a href="assets/videos/yourday-PC.mp4" target="_blank" class="link-custom">ショップ-PC</a><br>
+                                                    ・
+                                                    <a href="assets/videos/yourday-Mobile.mp4" target="_blank" class="link-custom">ショップ-Mobile</a><br>・
+                                                    <a href="assets/videos/yourday-editor.mp4" target="_blank" class="link-custom">エディター</a>
                                                 </span>
                                             </div>
 
                                             <div class="flex items-start gap-1">
                                                 <span class="text-sm text-slate-600">
-                                                    ブラウザ:(パスワード必要)<br>
+                                                    Shopify開発環境:(パスワード必要)<br>
                                                     お気軽にお問い合わせください。<br>・
                                                     <a href="https://yourday-dev-p.myshopify.com/" target="_blank" class="link-custom">
-                                                        yourday.com</a>
+                                                        ショップ</a>
                                                 </span>
                                             </div>
                                         </td>
@@ -481,7 +497,6 @@
                                       
                                         </td>
                                         <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-                                           動画埋め込み
                                         </td>
 
                                         <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">      
@@ -729,6 +744,18 @@ function handleAuth() {
         const error = document.getElementById('auth-error');
         error.classList.remove('hidden');
         document.getElementById('passcode-input').value = "";
+    }
+}
+
+// 動画の表示/非表示を切り替える関数
+function toggleVideo(videoId, button) {
+    const videoElement = document.getElementById(videoId);
+    if (videoElement.classList.contains('hidden')) {
+        videoElement.classList.remove('hidden');
+        button.textContent = '✕ 非表示にする';
+    } else {
+        videoElement.classList.add('hidden');
+        button.textContent = '📹 動画を表示する';
     }
 }
 </script>
