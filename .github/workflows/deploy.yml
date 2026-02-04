@@ -1,0 +1,32 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Replace secrets
+        run: |
+          sed -i 's/___AUTH_SECRET_PLACEHOLDER___/${{ secrets.MY_AUTH_SECRET }}/g' index.html
+          sed -i 's/___AUTH_MAIL_PLACEHOLDER___/${{ secrets.MY_AUTH_MAIL }}/g' index.html
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
