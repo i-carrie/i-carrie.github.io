@@ -704,13 +704,13 @@ function toggleAccordion(id) {
 
 // 2. パスコードを判定する関数
 function handleAuth() {
-    const input = document.getElementById('passcode-input').value;
+    const input = document.getElementById('passcode-input').value.trim();
     const infoArea = document.getElementById('authorized-info');
     
     const secret = "___AUTH_SECRET_PLACEHOLDER___"; 
     const mail = "___AUTH_MAIL_PLACEHOLDER___";
 
-    if (btoa(input) === secret) {
+    if (input === atob(secret)) {
         document.getElementById('unlock-area').classList.add('hidden');
         const decodedMail = atob(mail);
         infoArea.innerHTML = `
