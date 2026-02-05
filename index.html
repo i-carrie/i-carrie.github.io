@@ -1,764 +1,695 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./output.css" rel="stylesheet">
-    <title>Carrie's Portfolio</title>  
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* アコーディオンのトグル */
-        .accordion-content {
-            max-height: 5000px;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-        
-        .accordion-content.closed {
-            max-height: 0;
-        }
-        
-        /* カスタムリンク色 */
-        .link-custom {
-            color: #9999CC;
-            transition: all 0.2s;
-        }
-        .link-custom:hover {
-            color: #CC66FF;
-            text-decoration: underline;
-        }
-        
-        /* カスタムボーダー - インデント後から線を引く */
-        tr.row-indent {
-            position: relative;
-        }
-        tr.row-indent td {
-            border-bottom: none !important;
-        }
-        tr.row-indent::after {
-            content: '';
-            position: absolute;
-            left: 80px;
-            right: 0;
-            bottom: 0;
-            height: 1px;
-            background-color: #e2e8f0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+  <title>Sora's Portfolio</title>  
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* アコーディオンのトグル */
+    .accordion-content {
+      max-height: 5000px;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .accordion-content.closed {
+      max-height: 0;
+    }
+    
+    /* カスタムリンク色 */
+    .link-custom {
+      color: #663399;
+      transition: all 0.2s;
+    }
+    /* .link-custom:hover {
+      color: #CC66FF;
+      text-decoration: underline;
+    } */
+    .link-custom-2 {
+      color: #334155;
+      transition: all 0.2s;
+    }
+    .link-custom:hover, 
+    .link-custom-2:hover {
+      color: #CC66FF;
+      text-decoration: underline;
+    }
+    /* カスタムボーダー - インデント後から線を引く */
+    tr.row-indent {
+      position: relative;
+    }
+    tr.row-indent td {
+      .max-w-5xl table tbody tr.row-indent td {
+      border-bottom-width: 0px;
+    }
+    tr.row-indent::after {
+      content: '';
+      position: absolute;
+      left: 80px;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background-color: #e2e8f0;
+    }
+  </style>
 </head>
 <body class="bg-slate-50">
 
-    <!-- Fixed Header Navigation -->
-    <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-50">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-xl font-bold text-slate-900">Carrie's Portfolio</div>
-            <ul class="flex gap-8 text-sm font-medium uppercase tracking-wider">
-                <li><a href="#about" class="text-slate-600 hover:text-[#CC66FF] transition">About</a></li>
-                <li><a href="#experience" class="text-slate-600 hover:text-[#CC66FF] transition">Experience</a></li>
-                <li><a href="#skills" class="text-slate-600 hover:text-[#CC66FF] transition">Skills</a></li>
-                <li><a href="#works" class="text-slate-600 hover:text-[#CC66FF] transition">Works</a></li>
-            </ul>
+  <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-50">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="text-xl font-bold text-slate-900">Sora's Portfolio</div>
+      <ul class="flex gap-8 text-sm font-medium uppercase tracking-wider">
+        <li><a href="#about" class="link-custom-2 transition">About</a></li>
+        <li><a href="#experience" class="link-custom-2 transition">Experience</a></li>
+        <li><a href="#skills" class="link-custom-2 transition">Skills</a></li>
+        <li><a href="#works" class="link-custom-2 transition">Works</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="pt-24 pb-16">
+    <div class="max-w-5xl mx-auto px-6">
+      
+      <h1 class="text-5xl font-bold text-slate-900 mb-16 text-center">Sora's Portfolio</h1>
+      
+      <nav class="mb-16">
+        <ul class="space-y-2 text-lg text-center">
+          <li><a href="#about" class="link-custom-2 transition uppercase tracking-wide">About</a></li>
+          <li><a href="#experience" class="link-custom-2 transition uppercase tracking-wide">Experience</a></li>
+          <li><a href="#skills" class="link-custom-2 transition uppercase tracking-wide">Skills</a></li>
+          <li><a href="#works" class="link-custom-2 transition uppercase tracking-wide">Works</a></li>
+        </ul>
+      </nav>
+
+      <section id="about" class="mb-12">
+        <div class="border-t-2 border-slate-300 pt-8">
+          <button onclick="toggleAccordion('about-content')" class="w-full flex justify-between items-center text-left mb-6">
+            <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—About</h2>
+            <span class="accordion-icon text-2xl text-slate-600">−</span>
+          </button>
+          
+          <div id="about-content" class="accordion-content">
+            <div class="bg-white rounded-xl border border-slate-200 p-10 shadow-sm">
+              <p class="text-xl text-gray-600 mb-8 text-center">
+                ご相談から開発・実装、成長まで一貫対応<br>
+                <span class="text-xl font-semibold text-gray-600 text-center">
+                  Web・ECサイト構築 × 業務効率化 × 成長支援</span>
+              </p>
+
+              <div class="flex justify-center mb-8 w-full">
+                  <img src="assets/images/sora2.png" alt="Sora" 
+                  class="w-32 h-32 rounded-full border-4 border-slate-100 shadow-md object-cover">
+              </div>
+             
+              <div class="space-y-6 text-slate-700 leading-relaxed">
+                <p>
+                  小売業界を中心に、約20年にわたりDigital（ECサイト、アプリ）と基幹システムにおいて、エンジニア、ビジネスアナリスト、プロジェクトマネージャー、プロダクトマネージャーを経験してきました。それぞれの役割の視点を持ち、プロジェクトを推進していけるところが強みです。企画・ロードマップ作成、課題整理・要件定義から開発・実装、リリース後のデータ分析と継続改善まで、各フェーズに必要なことを見極めながら、一貫してサポートします。
+                </p>
+                <p>
+                  海外留学と外資系企業での実務経験を通じて培った国際的な視点も強みの一つです。言葉や文化、立場の違いを超えた円滑なコミュニケーション、戦略的思考と柔軟な判断力、そして関係者を巻き込むリーダーシップで、スピード感を持ってプロジェクトを推進します。困難な局面でも諦めず、やり抜いてきました。お気軽にご相談ください。あなたのビジネスの成功に寄り添います。
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-    </nav>
+      </section>
 
-    <!-- Main Content -->
-    <div class="pt-24 pb-16">
-        <div class="max-w-5xl mx-auto px-6">
-            
-            <!-- Page Title -->
-            <h1 class="text-5xl font-bold text-slate-900 mb-16 text-center">Carrie's Portfolio</h1>
-            
-            <!-- Table of Contents -->
-            <nav class="mb-16">
-                <ul class="space-y-2 text-lg text-center">
-                    <li><a href="#about" class="text-slate-700 hover:text-[#CC66FF] transition uppercase tracking-wide">About</a></li>
-                    <li><a href="#experience" class="text-slate-700 hover:text-[#CC66FF] transition uppercase tracking-wide">Experience</a></li>
-                    <li><a href="#skills" class="text-slate-700 hover:text-[#CC66FF] transition uppercase tracking-wide">Skills</a></li>
-                    <li><a href="#works" class="text-slate-700 hover:text-[#CC66FF] transition uppercase tracking-wide">Works</a></li>
-                </ul>
-            </nav>
+      <section id="experience" class="mb-12">
+        <div class="border-t-2 border-slate-300 pt-8">
+          <button onclick="toggleAccordion('experience-content')" class="w-full flex justify-between items-center text-left mb-6">
+            <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—Experience</h2>
+            <span class="accordion-icon text-2xl text-slate-600">−</span>
+          </button>
+          
+          <div id="experience-content" class="accordion-content">
+            <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="bg-slate-50 border-b border-slate-200">
+                    <th class="pr-45 text-left px-8 py-4 text-xs font-bold tracking-widest text-slate-400">Category</th>
+                    <th class="pr-auto text-left px-8 py-4 text-xs font-bold tracking-widest text-slate-400 text-center">Skills</th>
+                    <th class="pr-10 text-right px-8 py-4 text-xs font-bold tracking-widest text-slate-400">Years</th>
+                  </tr>
+                </thead>
+                <tbody class="text-slate-600">
+                  <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
+                    <td class="px-8 py-6 font-bold text-base align-top">プロダクトマネジメント</td>
+                    <td class="px-8 py-6 text-left text-sm">
+                      Agile/Scrum、プロダクトビジョン策定、ロードマップ作成、KPI設計、要件定義、カスタマージャーニーマップ作成、UX設計、機能優先順位の最適化、バックログ<br>管理、データ分析・ABテスト、SaaS選定、プロダクトグロース戦略
+                    </td>
+                    <td class="px-8 py-6 text-center text-sm align-top">5</td>
+                  </tr>
+                  <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
+                    <td class="px-8 py-6 font-bold text-base align-top">プロジェクトマネジメント</td>
+                    <td class="px-8 py-6 text-left text-sm">
+                      Waterfall、RFP策定、プロジェクトチャーター策定、プランニング・スケジューリング、WBS策定、進捗・リソース管理、予算管理、リスク管理、要件定義、<br>外部ベンダーコントロール、ステークホルダーマネジメント
+                    <td class="px-8 py-6 text-center text-sm align-top">10</td>
+                  </tr>
+                  <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
+                    <td class="px-8 py-6 font-bold text-base align-top">ビジネスアナリシス</td>
+                    <td class="px-8 py-6 text-left text-sm">
+                      要求・要件定義、現状分析（AS-IS）／改修後（TO-BE）分析、Gap分析、<br>業務フロー等の作成、基本設計、システム選定、改善提案、業務プロセス最適化、パッケージ・ソリューション選定</td>
+                    <td class="px-8 py-6 text-center text-sm align-top">10</td>
+                  </tr>
+                  <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
+                    <td class="px-8 py-6 font-bold text-base align-top">エンジニアリング</td>
+                    <td class="px-8 py-6 text-left text-sm">基本設計、詳細設計、実装・開発、テスト・デバッグ</td>
+                    <td class="px-8 py-6 text-center text-sm align-top">6</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <!-- ABOUT Section -->
-            <section id="about" class="mb-12">
-                <div class="border-t-2 border-slate-300 pt-8">
-                    <button onclick="toggleAccordion('about-content')" class="w-full flex justify-between items-center text-left mb-6">
-                        <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—About</h2>
-                        <span class="accordion-icon text-2xl text-slate-600">−</span>
-                    </button>
-                    
-                    <div id="about-content" class="accordion-content">
-                        <div class="bg-white rounded-xl border border-slate-200 p-10 shadow-sm">
-                            <!-- Summary Title -->
-                            <p class="text-xl text-gray-600 mb-8 text-center">
-                                ご相談から開発・実装、成長までの一貫したサービスを提供。<br>
-                                <span class="text-xl font-semibold text-gray-600 text-center">
-                                    コンサルティング × 技術 x グロースのプロフェッショナル</span>
-                            </p>
+      <section id="skills" class="mb-12">
+        <div class="border-t-2 border-slate-300 pt-8">
+          <button onclick="toggleAccordion('skills-content')" class="w-full flex justify-between items-center text-left mb-6">
+            <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—Skills</h2>
+            <span class="accordion-icon text-2xl text-slate-600">−</span>
+          </button>
 
-                            <div class="flex justify-center mb-8 w-full">
-                                <img src="https://github.com/user-attachments/assets/938fb286-e12f-4ce5-801e-4f5828d2b213" 
-                                    alt="Carrie" 
-                                    class="w-32 h-32 rounded-full border-4 border-slate-100 shadow-md object-cover">
-                            </div>
-                           
-                            <!-- Lorem Ipsum Text -->
-                            <div class="space-y-6 text-slate-700 leading-relaxed">
-                                <p>
-                                    主に小売業界にて、ECサイト、モバイルアプリ、業務システムに、プロダクトマネージャー、プロジェクトマネージャー、ビジネスアナリスト、エンジニアとして約20年携わる ーービジネス戦略の立案、ロードマップ策定、要件定義から開発・実装、そしてリリース後のデータ分析と継続的な改善まで、一貫してリード。段階的に動くものをリリースし、効果を測りながら柔軟に機能開発の優先順位を変え、このプロセスを繰り返しながらプロダクトを成長させてきました。
-                                </p>
-                                <p>
-                                    海外留学と外資系企業での実務経験で培った国際的な視点を持つ ーー言葉や文化の違い、ポジションの違いを超え、様々な方々との円滑なコミュニケーションを図れることは強みの１つです。戦略的思考力、状況に応じた柔軟な判断力、そして社内外、国内外の関係者を巻き込むリーダーシップで、スピード感を持ってプロジェクトを推進し、困難な局面でも諦めずにやり抜く力で、チームと共にプロジェクトの成功に貢献してきました。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+          <div id="skills-content" class="accordion-content">
+            <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="bg-slate-50 border-b border-slate-200">
+                    <th class="w-96 px-6 py-4 text-xs font-bold tracking-widest text-slate-400">
+                      Category
+                    </th>
+                    <th class="px-6 py-4 text-xs font-bold tracking-widest text-slate-400">
+                      Technology/System/Tool
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="text-slate-600">
+                  <tr>
+                    <td class="px-6 pt-5 pb-1 align-top text-base font-bold leading-none text-slate-800">
+                      Development & Engineering
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none border-b border-slate-100">
+                      HTML, Liquid
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
+                      CSS, Tailwind CSS, Sass, Bootstrap
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-200">
+                      JavaScript, jQuery, Alpine.js
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
+                      Ruby on Rails
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
+                      PHP
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-200">
+                      WordPress
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-200">
+                      SQL
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
+                      Docker
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-300">
+                      Git ／ GitHub
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 pt-5 pb-1 align-top text-base font-bold leading-none text-slate-800">
+                      Development Methodologies
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none border-b border-slate-100">
+                      Agile/Scrum
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-300">
+                      Waterfall
+                    </td>
+                  </tr>                                   
+                  <tr>
+                    <td class="px-6 pt-5 pb-1 align-top text-base font-bold leading-none text-slate-800">
+                      Digital Commerce & Marketing
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none border-b border-slate-100">
+                      AEM (Adobe Experience Manager)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
+                      Shopify (Liquid開発, CLI, Theme customization)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
+                      Tealium
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
+                      Monetate
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
+                      Adobe Analytics 
+                    </td>
+                  </tr>                   
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
+                      Karte
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
+                      ZetaSearch
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
+                      Visumo
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
+                      <a href="https://www.mention-me.com/" target="_blank" class="link-custom">MentionMe（Referral Marketing）</a>
+                    </td>
+                  </tr>                   
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-300">
+                      MA（Marketing Automation）
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 pt-5 pb-1 align-top text-base font-bold leading-none text-slate-800">
+                      Enterprise Business Systems
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none border-b border-slate-100">
+                      Dynamics 365(Business Central, CRM)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
+                      POS (Oracle MICROS / Cegid)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-300">
+                      CRM（SugarCRM, Siebel）
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 pt-5 pb-1 align-top text-base font-bold leading-none text-slate-800">
+                      Tools & Collaboration
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none border-b border-slate-100">
+                      Jira
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
+                      Backlog
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
+                      Confluence
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
+                      Miro
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
+                      Visio
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
+                      MS-Project
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
+                      Figma
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 pt-2 pb-6 align-top text-sm text-left leading-none border-b border-slate-100">
+                      <a href="https://saucelabs.com/">Sauce Labs</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <!-- EXPERIENCE Section -->
-            <section id="experience" class="mb-12">
-                <div class="border-t-2 border-slate-300 pt-8">
-                    <button onclick="toggleAccordion('experience-content')" class="w-full flex justify-between items-center text-left mb-6">
-                        <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—Experience</h2>
-                        <span class="accordion-icon text-2xl text-slate-600">−</span>
-                    </button>
-                    
-                    <div id="experience-content" class="accordion-content">
-                        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
-                            <table class="w-full text-left border-collapse">
-                                <thead>
-                                    <tr class="bg-slate-50 border-b border-slate-200">
-                                        <th class="px-8 py-4 text-xs font-bold tracking-widest text-slate-400">Category</th>
-                                        <th class="px-8 py-4 text-xs font-bold tracking-widest text-slate-400 text-center">Skills</th>
-                                        <th class="px-8 py-4 text-xs font-bold tracking-widest text-slate-400 text-right">Years</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="text-slate-600">
-                                    <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
-                                        <td class="px-8 py-6 font-bold text-base align-top">プロダクトマネジメント</td>
-                                        <td class="px-8 py-6 text-left text-sm">
-                                            Agile/Scrum、プロダクトビジョン策定、ロードマップ作成、<br>
-                                            KPI設計、要件定義、カスタマージャーニーマップ作成、UX設計、<br>
-                                            機能優先順位の最適化、SaaS選定、プロダクトグロース戦略
-                                        </td>
-                                        <td class="px-8 py-6 text-center text-sm align-top">5</td>
-                                    </tr>
-                                    <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
-                                        <td class="px-8 py-6 font-bold text-base align-top">プロジェクトマネジメント</td>
-                                        <td class="px-8 py-6 text-left text-sm">
-                                            Waterfall、RFP策定、プロジェクトチャーター策定、<br>プランニング・
-                                            スケジューリング、WBS策定、進捗・<br>リソース管理、
-                                            リスク管理、要件定義、外部ベンダー<br>コントロール、
-                                            ステークホルダーマネジメント</td>
-                                        <td class="px-8 py-6 text-center text-sm align-top">10</td>
-                                    </tr>
-                                    <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
-                                        <td class="px-8 py-6 font-bold text-base align-top">ビジネスアナリシス</td>
-                                        <td class="px-8 py-6 text-left text-sm">
-                                            要求・要件定義、現状分析（AS-IS）／ 改修後（TO-BE）<br>
-                                            分析、Gap分析、業務フロー等の作成、基本設計、
-                                            <br>システム選定、改善提案、業務プロセス最適化、パッケージ・
-                                            <br>ソリューション選定</td>
-                                        <td class="px-8 py-6 text-center text-sm align-top">10</td>
-                                    </tr>
-                                    <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
-                                        <td class="px-8 py-6 font-bold text-base align-top">エンジニアリング</td>
-                                        <td class="px-8 py-6 text-left text-sm">基本設計、詳細設計、実装・開発、テスト・デバッグ</td>
-                                        <td class="px-8 py-6 text-center text-sm align-top">6</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        <!-- SKILLS Section -->
-            <section id="skills" class="mb-12">
-                <div class="border-t-2 border-slate-300 pt-8">
-
-                    <button onclick="toggleAccordion('skills-content')" class="w-full flex justify-between items-center text-left mb-6">
-                        <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—Skills</h2>
-                        <span class="accordion-icon text-2xl text-slate-600">−</span>
-                    </button>
-
-                    <div id="skills-content" class="accordion-content">
-                        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
-                            <table class="w-full text-left border-collapse">
-                                <thead>
-                                    <tr class="bg-slate-50 border-b border-slate-200">
-                                        <th class="w-96 px-6 py-4 text-xs font-bold tracking-widest text-slate-400">
-                                            Category
-                                        </th>
-                                        <th class="px-6 py-4 text-xs font-bold tracking-widest text-slate-400">
-                                            Technology/System/Tool
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody class="text-slate-600">
-                                    <tr>
-                                        <td class="px-6 pt-5 pb-1 align-top text-base font-bold leading-none text-slate-800">
-                                            Development & Engineering
-                                        </td>
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            HTML, Liquid
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            CSS, Tailwind CSS, Sass, Bootstrap
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            JavaScript, jQuery, Alpine.js
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            Ruby on Rails
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            PHP
-                                        </td>
-                                    </tr>
-                                   <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            WordPress
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            SQL
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            Docker
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            Git ／ GitHub
-                                        </td>
-                                    </tr>
-
-                                     <tr>
-                                        <td class="px-6 pt-5 pb-1 align-top text-base font-bold leading-none text-slate-800">
-                                            Development Methodologies
-                                        </td>
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            Agile/Scrum
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            Waterfall
-                                        </td>
-                                    </tr>                                   
-                                
-                                     <tr>
-                                        <td class="px-6 pt-5 pb-1 align-top text-base font-bold leading-none text-slate-800">
-                                            Digital Commerce & Marketing
-                                        </td>
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            AEM (Adobe Experience Manager)
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            Shopify (Liquid開発, CLI, Theme customization)
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            Tealium
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            Monetate
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                           Adobe Analytics 
-                                        </td>
-                                    </tr>                   
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            Karte
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            ZetaSearch
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            Visumo
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                           <a href="https://www.mention-me.com/" target="_blank" class="link-custom">MentionMe（Referral Marketing）</a>
-                                        </td>
-                                    </tr>                   
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                           MA（Marketing Automation）
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="px-6 pt-5 pb-1 align-top text-base font-bold leading-none text-slate-800">
-                                            Enterprise Business Systems
-                                        </td>
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            Dynamics 365(Business Central, CRM)
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            POS (Oracle MICROS / Cegid)
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            CRM（SugarCRM, Siebel）
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="px-6 pt-5 pb-1 align-top text-base font-bold leading-none text-slate-800">
-                                            Tools & Collaboration
-                                        </td>
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            Jira
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            Backlog
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            Confluence
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            Miro
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            Visio
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            MS-Project
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            Figma
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-2 leading-none"></td>
-                                        <td class="px-6 pt-2 pb-6 align-top text-sm text-left leading-none border-b border-slate-100">
-                                            <a href="https://saucelabs.com/">Sauce Labs</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </section>
-                    
-
-            <!-- WORKS Section -->
-            <section id="works" class="mb-12">
-                <div class="border-t-2 border-slate-300 pt-8">
-                    <button onclick="toggleAccordion('works-content')" class="w-full flex justify-between items-center text-left mb-6">
-                        <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—Works</h2>
-                        <span class="accordion-icon text-2xl text-slate-600">−</span>
-                    </button>
-                    
-                    <div id="works-content" class="accordion-content">
-                        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
-                            <table class="w-full table-fixed text-left border-collapse">
-                                
-                                <thead>
-                                    <tr class="bg-slate-50 border-b border-slate-200">
-                                        <th colspan="2" class="w-[350px] px-6 py-4 text-xs font-bold tracking-widest text-slate-400">
-                                            Category／Project
-                                        </th>
-
-                                        <th class="w-full px-6 py-4 text-xs font-bold tracking-widest text-slate-400">
-                                            Overview
-                                        </th>
-
-                                        <th class="w-68 px-6 py-4 text-xs font-bold tracking-widest text-slate-400">
-                                            URL/Remarks
-                                        </th>                                        
-                                    </tr>
-                                </thead>
-
-                                <tbody class="text-slate-600">
-                                    <tr>
-                                        <td colspan="3" class="px-6 pt-5 pb-1 align-top text-sm font-bold leading-none text-slate-800">
-                                            個人プロジェクト
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2" class="pl-20 px-6 pt-5 pb-1 align-top text-sm leading-none ">
-                                            Shopifyスクラッチ開発
-                                        </td>
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-
-                                            ナチュラルな素材を使った癒やしの<br>Room/Bathグッズ仮想ショップ<br><br>
-                                            <!-- トグルボタン -->
-                                            <button onclick="toggleVideo('yourday-video', this)" class="text-xs link-custom cursor-pointer mb-2 hover:underline">
-                                                ✕ 動画を非表示にする
-                                            </button>
-                                            <br>
-                                            
-                                            <!-- 動画（idが必要！） -->
-                                            <a id="yourday-video" href="assets/videos/yourday-PC.mp4" target="_blank">
-                                                <video width="320" autoplay muted loop class="cursor-pointer">
-                                                    <source src="assets/videos/yourday-PC.mp4" type="video/mp4">
-                                                </video>
-                                            </a>
-
-
-                                        </td>
-
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-                                            
-                                            <div class="flex items-start gap-1 mb-4">
-                                                <span class="text-sm text-slate-600">
-                                                    動画:(パスワード不要)<br>・
-                                                    <a href="assets/videos/yourday-PC.mp4" target="_blank" class="link-custom">ショップ-PC</a><br>
-                                                    ・
-                                                    <a href="assets/videos/yourday-Mobile.mp4" target="_blank" class="link-custom">ショップ-Mobile</a><br>・
-                                                    <a href="assets/videos/yourday-editor.mp4" target="_blank" class="link-custom">エディター</a>
-                                                </span>
-                                            </div>
-
-                                            <div class="flex items-start gap-1">
-                                                <span class="text-sm text-slate-600">
-                                                    Shopify開発環境:(パスワード必要)<br>
-                                                    お気軽にお問い合わせください。<br>・
-                                                    <a href="https://yourday-dev-p.myshopify.com/" target="_blank" class="link-custom">
-                                                        ショップ</a>
-                                                </span>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                     <tr class="row-indent">
-                                        <td colspan="2" class="pl-20 px-6 pt-5 pb-1 align-top text-sm leading-none ">
-                                      
-                                        </td>
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-                                        </td>
-
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">      
-                                        </td>
-                                    </tr>                                   
-                                    <tr>
-                                        <td colspan="3" class="px-6 pt-5 pb-1 align-top text-sm font-bold leading-none text-slate-800">
-                                            Digital Commerce & Marketing
-                                        </td>
-                                    </tr>
-                                    <tr class="row-indent">
-                                        <td colspan="2" class="pl-20 px-6 pt-5 pb-1 align-top text-sm leading-none ">
-                                            Shopify UX改善 - Skagen.com
-                                        </td>
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-                                            ECサイトの継続的改善・機能開発
-                                        </td>
-
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-                                            <a class="link-custom" href="https://www.skagen.com/ja-jp/" target="_blank"> skagen.com</a>
-                                        </td>
-                                    </tr>
-                                    <tr class="row-indent">
-                                        <td colspan="2" class="pl-20 px-6 pt-5 pb-1 align-top text-sm leading-none ">
-                                            Shopify UX改善 - Fossil.com
-                                        </td>
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-                                           ECサイトの継続的改善・機能開発
-                                        </td>
-
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-                                            <a class="link-custom" href="https://www.fossil.com/ja-jp/" target="_blank">fossil.com</a>
-                                        </td>
-                                    </tr>
-                                    <tr class="row-indent">
-                                        <td colspan="2" class="pl-20 px-6 pt-5 pb-1 align-top text-sm leading-none ">
-                                            AEM UX/機能改善
-                                        </td>
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-                                            大規模ECにおける継続的改善・機能開発
-                                        </td>
-
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-                                            <a class="link-custom" href="https://qvc.jp/" target="_blank">qvc.jp</a>
-                                        </td>
-                                    </tr>
-                                    <tr class="row-indent">
-                                        <td colspan="2" class="pl-20 px-6 pt-5 pb-1 align-top text-sm leading-none ">
-                                            AEM:パーソナライぜーション（Karte）
-                                        </td>
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-                                            パーソナライゼーション施策の企画・実装
-                                        </td>
-
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-                                            
-                                        </td>
-                                    </tr>
+      <section id="works" class="mb-12">
+        <div class="border-t-2 border-slate-300 pt-8">
+          <button onclick="toggleAccordion('works-content')" class="w-full flex justify-between items-center text-left mb-6">
+            <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—Works</h2>
+            <span class="accordion-icon text-2xl text-slate-600">−</span>
+          </button>
+          
+          <div id="works-content" class="accordion-content">
+            <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+              <table class="w-full table-fixed text-left border-collapse">
+                <thead>
+                  <tr class="bg-slate-50 border-b border-slate-200">
+                    <th colspan="2" class="w-[350px] px-6 py-4 text-xs font-bold tracking-widest text-slate-400">
+                      Category／Project
+                    </th>
+                    <th class="w-full px-6 py-4 text-xs font-bold tracking-widest text-slate-400">
+                      Summary
+                    </th>
+                    <th class="w-68 px-6 py-4 text-xs font-bold tracking-widest text-slate-400">
+                      URL/Remarks
+                    </th>                                        
+                  </tr>
+                </thead>
+                <tbody class="text-slate-600">
+                  <tr>
+                    <td colspan="3" class="px-6 pt-5 pb-1 align-top text-sm font-bold leading-none text-slate-800">
+                      個人プロジェクト
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" class="pl-20 px-6 pt-5 pb-1 align-top text-sm leading-none ">
+                      Shopifyスクラッチ開発
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
+                      ナチュラルな素材を使った癒やしの<br>Room/Bathグッズ仮想ショップ<br><br>
+                      <button onclick="toggleVideo('yourday-video', this)" class="text-xs link-custom cursor-pointer mb-2 hover:underline">
+                        ✕ 動画を非表示にする
+                      </button>
+                      <br>                                       
+                      <a id="yourday-video" href="assets/videos/yourday-PC.mp4" target="_blank">
+                        <video width="320" autoplay muted loop class="cursor-pointer">
+                          <source src="assets/videos/yourday-PC.mp4" type="video/mp4">
+                        </video>
+                      </a>
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
+                      <ul>
+                        <li class="pb-2">動画:（パスワード不要）</li>
+                        <li class="pb-1">・
+                          <a href="assets/videos/yourday-PC.mp4" target="_blank" class="link-custom">ショップ-PC</a>
+                        </li>
+                        <li class="pb-1">・
+                          <a href="assets/videos/yourday-Mobile.mp4" target="_blank" class="link-custom">ショップ-Mobile</a>
+                        </li>
+                        <li class="pb-4">・
+                          <a href="assets/videos/yourday-editor.mp4" target="_blank" class="link-custom">エディター</a>
+                        </li>
+                      </ul>
+                      <ul>
+                        <li class="pb-2">開発環境:（パスワード必要）</li>
+                        <li class="text-[11px] text-[#990000] pb-2">※お気軽にお問い合わせください。</li>
+                        <li>・
+                          <a href="https://yourday-dev-p.myshopify.com/" target="_blank" class="link-custom">ショップ</a>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr class="row-indent">
+                    <td colspan="2" class="pl-20 px-6 pt-5 pb-1 align-top text-sm leading-none "></td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none "></td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none "></td>
+                  </tr>                                   
+                  <tr>
+                    <td colspan="3" class="px-6 pt-5 pb-1 align-top text-sm font-bold leading-none text-slate-800">
+                      Digital Commerce & Marketing
+                    </td>
+                  </tr>
+                  <tr class="row-indent">
+                    <td colspan="2" class="pl-20 px-6 pt-5 pb-1 align-top text-sm leading-none ">
+                      Shopify UI/UX改善
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
+                      ファッションブランドのECサイトのUI/UX改善
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
+                      <a class="link-custom" href="https://www.skagen.com/ja-jp/" target="_blank"> skagen.com</a>
+                    </td>
+                  </tr>
+                  <tr class="row-indent">
+                    <td colspan="2" class="pl-20 px-6 pt-5 pb-1 align-top text-sm leading-none ">
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
+                      <a class="link-custom" href="https://www.fossil.com/ja-jp/" target="_blank">fossil.com</a>
+                    </td>
+                  </tr>
+                  <tr class="row-indent">
+                    <td colspan="2" class="pl-20 px-6 pt-5 pb-1 align-top text-sm leading-none ">
+                      AEM UI/UX/機能改善
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
+                      大規模ECにおける継続的改善・機能開発
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
+                      <a class="link-custom" href="https://qvc.jp/" target="_blank">qvc.jp</a>
+                    </td>
+                  </tr>
+                  <tr class="row-indent">
+                    <td colspan="2" class="pl-25 px-6 pt-5 pb-1 align-top text-sm leading-none ">
+                      -パーソナライぜーション（Karte）
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
+                      パーソナライゼーション施策の企画・実装
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none "></td>
+                  </tr>
+                  <tr class="row-indent">
+                    <td colspan="2" class="pl-25 px-6 pt-5 pb-1 align-top text-sm leading-none ">
+                      -検索エンジンリプレースメント（ZetaSearch）
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
+                      サイト内検索機能の刷新・最適化
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none "></td>
+                  </tr>
+                  <tr class="row-indent">
+                    <td colspan="2" class="pl-25 px-6 pt-5 pb-1 align-top text-sm leading-none ">
+                      -Global Analytics Standardization（Adobe Analytics）  
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
+                      グローバル標準と日本独自要件のGap分析、レポート設計・実装 
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none "></td>
+                  </tr>
+                  <tr class="row-indent">
+                    <td colspan="2" class="pl-25 px-6 pt-5 pb-1 align-top text-sm leading-none ">
+                      -Referral Marketing（MentionMe）
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
+                      リファラルマーケティング施策の企画・実装 
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none "></td>
+                  </tr>
+                  <tr class="row-indent">
+                    <td colspan="3" class="pl-25 px-6 pt-5 pb-1 align-top text-sm leading-none ">
+                      -その他、Web/Mobile AppのUI・機能改善  
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
+                      <a class="link-custom" href="https://apps.apple.com/jp/app/qvc%E3%82%B8%E3%83%A3%E3%83%91%E3%83%B3-%E3%81%8A%E8%B2%B7%E3%81%84%E7%89%A9%E3%83%81%E3%83%A3%E3%83%B3%E3%83%8D%E3%83%ABqvc/id410794067">iOS</a> ／ 
+                      <a class="link-custom" href="https://play.google.com/store/apps/details?id=jp.qvc&hl=ja">Android</a> ／ 
+                      <a class="link-custom" href="https://qvc.jp/">Web</a>  
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" class="px-6 pt-5 pb-1 align-top text-sm font-bold leading-none text-slate-800">
+                      Enterprise Systems
+                    </td>
+                  </tr>
+                  <tr class="row-indent">
+                    <td colspan="2" class="pl-20 px-6 pt-5 pb-1 align-top text-sm leading-none ">
+                      POSシステム刷新（Oracle Micros） 
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
+                      店舗販売管理システムの導入
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none "></td>
+                  </tr>
+                  <tr class="row-indent">
+                    <td colspan="2" class="pl-20 px-6 pt-5 pb-1 align-top text-sm leading-none ">
+                      MS-Dynamics 365 Business Central 保守・機能改善 
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
+                      基幹システム(受注管理)の機能改善、不具合対応
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none "></td>
+                  </tr>
+                  <tr class="row-indent">
+                    <td colspan="2" class="pl-20 px-6 pt-5 pb-1 align-top text-sm leading-none ">
+                      MS-Dynamics 365（CRM）保守・<br>機能改善
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
+                      顧客管理システムの機能改善、不具合対応
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none "></td>
+                  </tr>
+                  <tr class="row-indent">
+                    <td colspan="3" class="pl-20 px-6 pt-5 pb-6 align-top text-sm leading-none ">
+                      その他、RAP、社内ツールの開発、改善など
+                    </td>
+                    <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none "></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
  
-                                    <tr class="row-indent">
-                                        <td colspan="2" class="pl-20 px-6 pt-5 pb-1 align-top text-sm leading-none ">
-                                            AEM:検索エンジンリプレースメント（ZetaSearch）
-                                        </td>
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-                                            サイト内検索機能の刷新・最適化
-                                        </td>
-
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-                                            
-                                        </td>
-                                    </tr>
-                                   <tr class="row-indent">
-                                        <td colspan="2" class="pl-20 px-6 pt-5 pb-1 align-top text-sm leading-none ">
-                                          AEM:Global Analytics Standaization（Adobe Analytics）  
-                                        </td>
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-                                           グローバル標準と日本独自要件のGap分析、レポート設計・実装 
-                                        </td>
-
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-                                            
-                                        </td>
-                                    </tr>
-                                    <tr class="row-indent">
-                                        <td colspan="2" class="pl-20 px-6 pt-5 pb-1 align-top text-sm leading-none ">
-                                           AEM:Referral Marketing（MentionMe）
-                                        </td>
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-                                           リファラルマーケティング施策の企画・実装 
-                                        </td>
-
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-                                            
-                                        </td>
-                                    </tr>
-                                    <tr class="row-indent">
-                                        <td colspan="3" class="pl-20 px-6 pt-5 pb-1 align-top text-sm leading-none ">
-                                          その他、Web/Mobile AppのUI・機能改善  
-                                        </td>
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-                                            <a class="link-custom" href="https://apps.apple.com/jp/app/qvc%E3%82%B8%E3%83%A3%E3%83%91%E3%83%B3-%E3%81%8A%E8%B2%B7%E3%81%84%E7%89%A9%E3%83%81%E3%83%A3%E3%83%B3%E3%83%8D%E3%83%ABqvc/id410794067">iOS</a> ／ 
-                                            <a class="link-custom" href="https://play.google.com/store/apps/details?id=jp.qvc&hl=ja">
-                                                Android
-                                            </a> ／ 
-                                            <a class="link-custom" href="https://qvc.jp/">Web</a>  
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td colspan="3" class="px-6 pt-5 pb-1 align-top text-sm font-bold leading-none text-slate-800">
-                                            Enterprise Systems
-                                        </td>
-                                    </tr>
-                                    <tr class="row-indent">
-                                        <td colspan="2" class="pl-20 px-6 pt-5 pb-1 align-top text-sm leading-none ">
-                                           POS System Replacement（Oracle Micros） 
-                                        </td>
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-                                            店舗販売管理システムの刷新、要件定義から導入
-                                        </td>
-
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-
-                                        </td>
-                                    </tr>
-                                    <tr class="row-indent">
-                                        <td colspan="2" class="pl-20 px-6 pt-5 pb-1 align-top text-sm leading-none ">
-                                           MS-Dynamics 365 Business Central（旧Navision）機能改善 
-                                        </td>
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-                                           基幹システム・顧客管理システムの導入・保守運用 
-                                        </td>
-
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-
-                                        </td>
-                                    </tr>
-                                    <tr class="row-indent">
-                                        <td colspan="2" class="pl-20 px-6 pt-5 pb-1 align-top text-sm leading-none ">
-                                            MS-Dynamics 365（CRM）機能改善
-                                        </td>
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-                                            基幹システム・顧客管理システムの導入・保守運用
-                                        </td>
-
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-
-                                        </td>
-                                    </tr>
-                                    <tr class="row-indent">
-                                        <td colspan="3" class="pl-20 px-6 pt-5 pb-6 align-top text-sm leading-none ">
-                                            その他、RAP、社内ツールの開発、改善など
-                                        </td>
-                                        <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+      <section id="authorized" class="mb-12">
+        <div class="border-t-2 border-slate-300 pt-8">
+          <button onclick="toggleAccordion('authorized-content')" class="w-full flex justify-between items-center text-left mb-6">
+            <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—Authorized ONLY</h2>
+            <span class="accordion-icon text-2xl text-slate-600">+</span>
+          </button>
+          
+          <div id="authorized-content" class="accordion-content hidden">
+            <div class="bg-white rounded-xl border border-slate-200 p-10 shadow-sm">               
+              <div id="unlock-area" class="text-center max-w-sm mx-auto space-y-4">
+                <div class="flex flex-col gap-3">
+                  <input type="password" id="passcode-input" placeholder="Passcode" 
+                    class="w-full px-4 py-2 text-center border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-slate-400">
+                  <button onclick="handleAuth()" 
+                    class="w-full py-2 bg-slate-900 text-white text-sm font-medium rounded-lg hover:bg-slate-800 transition-all uppercase tracking-widest">
+                    Unlock
+                  </button>
                 </div>
-            </section>
- 
-            <section id="authorized" class="mb-12">
-                <div class="border-t-2 border-slate-300 pt-8">
-                    <button onclick="toggleAccordion('authorized-content')" class="w-full flex justify-between items-center text-left mb-6">
-                        <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—Authorized ONLY</h2>
-                        <span class="accordion-icon text-2xl text-slate-600">+</span>
-                    </button>
-                    
-                    <div id="authorized-content" class="accordion-content hidden">
-                        <div class="bg-white rounded-xl border border-slate-200 p-10 shadow-sm">               
-                            <div id="unlock-area" class="text-center max-w-sm mx-auto space-y-4">
-                                <div class="flex flex-col gap-3">
-                                    <input type="password" id="passcode-input" placeholder="Passcode" 
-                                        class="w-full px-4 py-2 text-center border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-slate-400">
-                                    <button onclick="handleAuth()" 
-                                            class="w-full py-2 bg-slate-900 text-white text-sm font-medium rounded-lg hover:bg-slate-800 transition-all uppercase tracking-widest">
-                                        Unlock
-                                    </button>
-                                </div>
-                                <p id="auth-error" class="text-red-400 text-xs hidden">パスコードが正しくありません</p>
-                            </div>
+                <p id="auth-error" class="text-red-400 text-xs hidden">パスコードが正しくありません</p>
+              </div>
 
-                            <div id="authorized-info" class="hidden text-center animate-fade-in"></div>
+              <div id="authorized-info" class="hidden text-center animate-fade-in"></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                        </div>
-                    </div>
-                </div>
-            </section>
+    </div>
+  </div>
 
+  <footer class="py-8 px-6 mt-4 bg-slate-900 text-slate-400 text-center text-sm">
+    <p>&copy; 2026 Sora's Portfolio. All rights reserved.</p>
+  </footer>
 
-    <!-- Footer -->
-    <footer class="py-8 px-6 mt-48 bg-slate-900 text-slate-400 text-center text-sm">
-        <p>&copy; 2026 Carrie's Portfolio. All rights reserved.</p>
-    </footer>
+  <script>
+    // 1. アコーディオンの開閉を管理する関数
+    function toggleAccordion(id) {
+      const content = document.getElementById(id);
+      const button = content.previousElementSibling;
+      const icon = button.querySelector('.accordion-icon');
 
+      content.classList.toggle('hidden');
 
-
-
-<!-- JavaScript for Accordion -->
- <script>
-// 1. アコーディオンの開閉を管理する関数
-function toggleAccordion(id) {
-    const content = document.getElementById(id);
-    const button = content.previousElementSibling;
-    const icon = button.querySelector('.accordion-icon');
-
- 
-    content.classList.toggle('hidden');
-
-    // 状態に合わせてアイコンを切り替える
-    if (content.classList.contains('hidden')) {
+      // 状態に合わせてアイコンを切り替える
+      if (content.classList.contains('hidden')) {
         icon.textContent = '+';
-    } else {
+      } else {
         icon.textContent = '−';
+      }
     }
-}
 
-// 2. パスコードを判定する関数
-function handleAuth() {
-    const input = document.getElementById('passcode-input').value.trim();
-    const infoArea = document.getElementById('authorized-info');
-    
-    const secret = "___AUTH_SECRET_PLACEHOLDER___"; 
-    const mail = "___AUTH_MAIL_PLACEHOLDER___";
+    // 2. パスコードを判定する関数
+    function handleAuth() {
+      const input = document.getElementById('passcode-input').value.trim();
+      const infoArea = document.getElementById('authorized-info');
+      
+      const secret = "___AUTH_SECRET_PLACEHOLDER___"; 
+      const mail = "___AUTH_MAIL_PLACEHOLDER___";
 
-    if (input === atob(secret)) {
+      if (input === atob(secret)) {
         document.getElementById('unlock-area').classList.add('hidden');
         const decodedMail = atob(mail);
         infoArea.innerHTML = `
-            <div class="space-y-2">
-                <p class="text-xs text-slate-400 uppercase tracking-widest">Email Address</p>
-                <a href="mailto:${decodedMail}" class="text-xl font-light link-custom border-b border-slate-200 pb-1">
-                    ${decodedMail}
-                </a>
-                <p class="text-xs text-slate-400 mt-4 leading-relaxed">
-                    ※返信には1〜2営業日ほどいただく場合がございます。
-                </p>
-            </div>
+          <div class="space-y-2">
+            <p class="text-xs text-slate-400 uppercase tracking-widest">Email Address</p>
+            <a href="mailto:${decodedMail}" class="text-xl font-light link-custom border-b border-slate-200 pb-1">
+              ${decodedMail}
+            </a>
+            <p class="text-xs text-slate-400 mt-4 leading-relaxed">
+              ※返信には1〜2営業日ほどいただく場合がございます。
+            </p>
+          </div>
         `;
         infoArea.classList.remove('hidden');
-    } else {
+      } else {
         const error = document.getElementById('auth-error');
         error.classList.remove('hidden');
         document.getElementById('passcode-input').value = "";
+      }
     }
-}
 
-// 動画の表示/非表示を切り替える関数
-function toggleVideo(videoId, button) {
-    const videoElement = document.getElementById(videoId);
-    if (videoElement.classList.contains('hidden')) {
+    // 動画の表示/非表示を切り替える関数
+    function toggleVideo(videoId, button) {
+      const videoElement = document.getElementById(videoId);
+      if (videoElement.classList.contains('hidden')) {
         videoElement.classList.remove('hidden');
         button.textContent = '✕ 非表示にする';
-    } else {
+      } else {
         videoElement.classList.add('hidden');
         button.textContent = '📹 動画を表示する';
+      }
     }
-}
-</script>
+  </script>
 
 </body>
 </html>
