@@ -8,9 +8,19 @@
   <style>
     html {
       scroll-behavior: smooth;
+      margin: 0;
+      padding: 0;
+      height: 100%;
     }
     
-    /* アコーディオンのトグル */
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
     .accordion-content {
       max-height: 5000px;
       overflow: hidden;
@@ -20,16 +30,10 @@
     .accordion-content.closed {
       max-height: 0;
     }
-    
-    /* カスタムリンク色 */
     .link-custom {
       color: #663399;
       transition: all 0.2s;
     }
-    /* .link-custom:hover {
-      color: #CC66FF;
-      text-decoration: underline;
-    } */
     .link-custom-2 {
       color: #334155;
       transition: all 0.2s;
@@ -39,7 +43,7 @@
       color: #CC66FF;
       text-decoration: underline;
     }
-    /* カスタムボーダー - インデント後から線を引く */
+
     tr.row-indent {
       position: relative;
     }
@@ -60,24 +64,40 @@
 </head>
 <body class="bg-slate-50">
 
-  <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-50">
-    <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+<nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-50">
+    <div class="max-w-5xl mx-auto px-[20px] py-4 flex justify-between items-center">
       <div class="text-xl font-bold text-slate-900">Sora's Portfolio</div>
-      <ul class="flex gap-8 text-sm font-medium uppercase tracking-wider">
+
+      <ul class="hidden md:flex gap-8 text-sm font-medium uppercase tracking-wider">
         <li><a href="#about" class="link-custom-2 transition">About</a></li>
         <li><a href="#experience" class="link-custom-2 transition">Experience</a></li>
         <li><a href="#skills" class="link-custom-2 transition">Skills</a></li>
         <li><a href="#works" class="link-custom-2 transition">Works</a></li>
       </ul>
+
+      <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="md:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8 focus:outline-none" aria-label="Menu">
+        <span class="block w-6 h-0.5 bg-slate-900"></span>
+        <span class="block w-6 h-0.5 bg-slate-900"></span>
+        <span class="block w-6 h-0.5 bg-slate-900"></span>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-[10px] py-6 shadow-lg">
+      <ul class="flex flex-col gap-6 text-sm font-medium uppercase tracking-wider">
+        <li><a href="#about" onclick="toggleMobileMenu()" class="link-custom-2 block">About</a></li>
+        <li><a href="#experience" onclick="toggleMobileMenu()" class="link-custom-2 block">Experience</a></li>
+        <li><a href="#skills" onclick="toggleMobileMenu()" class="link-custom-2 block">Skills</a></li>
+        <li><a href="#works" onclick="toggleMobileMenu()" class="link-custom-2 block">Works</a></li>
+      </ul>
     </div>
   </nav>
 
-  <div class="pt-24 pb-16">
+  <div class="pt-24 flex-1">
     <div class="max-w-5xl mx-auto px-6">
       
-      <h1 class="text-5xl font-bold text-slate-900 mb-16 text-center">Sora's Portfolio</h1>
+      <h1 class="text-4xl lg:text-5xl font-bold text-slate-900 mb-16 text-center">Sora's Portfolio</h1>
       
-      <nav class="mb-16">
+      <nav class="mb-12">
         <ul class="space-y-2 text-lg text-center">
           <li><a href="#about" class="link-custom-2 transition uppercase tracking-wide">About</a></li>
           <li><a href="#experience" class="link-custom-2 transition uppercase tracking-wide">Experience</a></li>
@@ -86,18 +106,20 @@
         </ul>
       </nav>
 
-      <section id="about" class="mb-12">
-        <div class="border-t-2 border-slate-300 pt-8">
+      <section id="about" class="mb-2 lg:mb-12">
+        <div class="border-t-2 border-slate-300 pt-6 md:pt-8">
           <button onclick="toggleAccordion('about-content')" class="w-full flex justify-between items-center text-left mb-6">
-            <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—About</h2>
+            <h2 class="text-xl lg:text-2xl font-bold text-slate-900 uppercase tracking-wider">—About</h2>
             <span class="accordion-icon text-2xl text-slate-600">−</span>
           </button>
           
+          <div class="block md:hidden border-b border-slate-400 mb-6"></div>
+
           <div id="about-content" class="accordion-content">
             <div class="bg-white rounded-xl border border-slate-200 p-10 shadow-sm">
-              <p class="text-xl text-gray-600 mb-8 text-center">
+              <p class="text-base lg:text-xl text-gray-600 mb-8 text-center">
                 ご相談から開発・実装、成長まで一貫対応<br>
-                <span class="text-xl font-semibold text-gray-600 text-center">
+                <span class="text-base lg:text-xl font-semibold text-gray-600 text-center">
                   Web・ECサイト構築 × 業務効率化 × 成長支援</span>
               </p>
 
@@ -106,7 +128,7 @@
                   class="w-32 h-32 rounded-full border-4 border-slate-100 shadow-md object-cover">
               </div>
              
-              <div class="space-y-6 text-slate-700 leading-relaxed">
+              <div class="space-y-6 text-slate-700 leading-relaxed text-sm lg:text-base">
                 <p>
                   小売業界を中心に、約20年にわたりDigital（ECサイト、アプリ）と基幹システムにおいて、エンジニア、ビジネスアナリスト、プロジェクトマネージャー、プロダクトマネージャーを経験してきました。それぞれの役割の視点を持ち、プロジェクトを推進していけるところが強みです。企画・ロードマップ作成、課題整理・要件定義から開発・実装、リリース後のデータ分析と継続改善まで、各フェーズに必要なことを見極めながら、一貫してサポートします。
                 </p>
@@ -119,15 +141,17 @@
         </div>
       </section>
 
-      <section id="experience" class="mb-12">
-        <div class="border-t-2 border-slate-300 pt-8">
+      <section id="experience" class="mb-2 lg:mb-12">
+        <div class="md:border-t-2 border-slate-300 md:pt-8">
           <button onclick="toggleAccordion('experience-content')" class="w-full flex justify-between items-center text-left mb-6">
-            <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—Experience</h2>
+            <h2 class="text-lg lg:text-2xl font-bold text-slate-900 uppercase tracking-wider">—Experience</h2>
             <span class="accordion-icon text-2xl text-slate-600">−</span>
           </button>
           
+          <div class="block md:hidden border-b border-slate-400 mb-6"></div>
+
           <div id="experience-content" class="accordion-content">
-            <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+            <div class="hidden md:block bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
               <table class="w-full text-left border-collapse">
                 <thead>
                   <tr class="bg-slate-50 border-b border-slate-200">
@@ -139,21 +163,17 @@
                 <tbody class="text-slate-600">
                   <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
                     <td class="px-8 py-6 font-bold text-base align-top">プロダクトマネジメント</td>
-                    <td class="px-8 py-6 text-left text-sm">
-                      Agile/Scrum、プロダクトビジョン策定、ロードマップ作成、KPI設計、要件定義、カスタマージャーニーマップ作成、UX設計、機能優先順位の最適化、バックログ<br>管理、データ分析・ABテスト、SaaS選定、プロダクトグロース戦略
-                    </td>
+                    <td class="px-8 py-6 text-left text-sm">Agile/Scrum、プロダクトビジョン策定、ロードマップ作成、KPI設計、要件定義、カスタマージャーニーマップ作成、UX設計、機能優先順位の最適化、バックログ管理、データ分析・ABテスト、SaaS選定、プロダクトグロース戦略</td>
                     <td class="px-8 py-6 text-center text-sm align-top">5</td>
                   </tr>
                   <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
                     <td class="px-8 py-6 font-bold text-base align-top">プロジェクトマネジメント</td>
-                    <td class="px-8 py-6 text-left text-sm">
-                      Waterfall、RFP策定、プロジェクトチャーター策定、プランニング・スケジューリング、WBS策定、進捗・リソース管理、予算管理、リスク管理、要件定義、<br>外部ベンダーコントロール、ステークホルダーマネジメント
+                    <td class="px-8 py-6 text-left text-sm">Waterfall、RFP策定、プロジェクトチャーター策定、プランニング・スケジューリング、WBS策定、進捗・リソース管理、予算管理、リスク管理、要件定義、外部ベンダーコントロール、ステークホルダーマネジメント</td>
                     <td class="px-8 py-6 text-center text-sm align-top">10</td>
                   </tr>
                   <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
                     <td class="px-8 py-6 font-bold text-base align-top">ビジネスアナリシス</td>
-                    <td class="px-8 py-6 text-left text-sm">
-                      要求・要件定義、現状分析（AS-IS）／改修後（TO-BE）分析、Gap分析、<br>業務フロー等の作成、基本設計、システム選定、改善提案、業務プロセス最適化、パッケージ・ソリューション選定</td>
+                    <td class="px-8 py-6 text-left text-sm">要求・要件定義、現状分析（AS-IS）／改修後（TO-BE）分析、Gap分析、業務フロー等の作成、基本設計、システム選定、改善提案、業務プロセス最適化、パッケージ・ソリューション選定</td>
                     <td class="px-8 py-6 text-center text-sm align-top">10</td>
                   </tr>
                   <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
@@ -164,19 +184,46 @@
                 </tbody>
               </table>
             </div>
+
+            <div class="block md:hidden space-y-6">
+              <div class="pb-6 border-b border-slate-300">
+                <div class="text-sm font-bold text-slate-900 mb-2">プロダクトマネジメント - 5 yrs</div>
+                <div class="text-xs text-slate-600 leading-relaxed">
+                  Agile/Scrum、プロダクトビジョン策定、ロードマップ作成、KPI設計、要件定義、カスタマージャーニーマップ作成、UX設計、機能優先順位の最適化、バックログ管理、データ分析・ABテスト、SaaS選定、プロダクトグロース戦略
+                </div>
+              </div>
+              <div class="pb-6 border-b border-slate-300">
+                <div class="text-sm font-bold text-slate-900 mb-2">プロジェクトマネジメント - 10 yrs</div>
+                <div class="text-xs text-slate-600 leading-relaxed">
+                  Waterfall、RFP策定、プロジェクトチャーター策定、プランニング・スケジューリング、WBS策定、進捗・リソース管理、予算管理、リスク管理、要件定義、外部ベンダーコントロール、ステークホルダーマネジメント
+                </div>
+              </div>
+              <div class="pb-6 border-b border-slate-300">
+                <div class="text-sm font-bold text-slate-900 mb-2">ビジネスアナリシス - 10 yrs</div>
+                <div class="text-xs text-slate-600 leading-relaxed">
+                  要求・要件定義、現状分析（AS-IS）／改修後（TO-BE）分析、Gap分析、業務フロー等の作成、基本設計、システム選定、改善提案、業務プロセス最適化、パッケージ・ソリューション選定
+                </div>
+              </div>
+              <div class="pb-6 border-b border-slate-300 last:border-0">
+                <div class="text-sm font-bold text-slate-900 mb-2">エンジニアリング - 6 yrs</div>
+                <div class="text-xs text-slate-600 leading-relaxed">
+                  基本設計、詳細設計、実装・開発、テスト・デバッグ
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="skills" class="mb-12">
-        <div class="border-t-2 border-slate-300 pt-8">
+      <section id="skills" class="lg:mb-12">
+        <div class="lg:border-t-2 border-slate-300 md:pt-8">
           <button onclick="toggleAccordion('skills-content')" class="w-full flex justify-between items-center text-left mb-6">
-            <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—Skills</h2>
+            <h2 class="text-lg lg:text-2xl font-bold text-slate-900 uppercase tracking-wider">—Skills</h2>
             <span class="accordion-icon text-2xl text-slate-600">−</span>
           </button>
 
           <div id="skills-content" class="accordion-content">
-            <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+            <div class="hidden md:block bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
               <table class="w-full text-left border-collapse">
                 <thead>
                   <tr class="bg-slate-50 border-b border-slate-200">
@@ -394,19 +441,96 @@
                 </tbody>
               </table>
             </div>
+
+            <!-- Mobile View -->
+            <div class="block md:hidden space-y-0">
+              <!-- Development & Engineering -->
+              <div class="pt-4 border-t border-slate-400">
+                <div class="text-base font-bold text-slate-900 mb-3">Development & Engineering</div>
+                <div class="space-y-0">
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">HTML, Liquid</div>
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">CSS, Tailwind CSS, Sass, Bootstrap</div>
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">JavaScript, jQuery, Alpine.js</div>
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">Ruby on Rails</div>
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">PHP</div>
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">WordPress</div>
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">SQL</div>
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">Docker</div>
+                  <div class="pb-1 pb-2 border-b border-slate-200 text-sm text-slate-600">Git ／ GitHub</div>
+                </div>
+              </div>
+
+              <!-- Development Methodologies -->
+              <div class="pt-4">
+                <div class="text-base font-bold text-slate-900 mb-3">Development Methodologies</div>
+                <div class="space-y-0">
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">Agile/Scrum</div>
+                  <div class="pb-1 pb-2 border-b border-slate-200 text-sm text-slate-600">Waterfall</div>
+                </div>
+              </div>
+
+              <!-- Digital Commerce & Marketing -->
+              <div class="pt-4">
+                <div class="text-base font-bold text-slate-900 mb-3">Digital Commerce & Marketing</div>
+                <div class="space-y-0">
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">AEM (Adobe Experience Manager)</div>
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">Shopify (Liquid開発, CLI, Theme customization)</div>
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">Tealium</div>
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">Monetate</div>
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">Adobe Analytics</div>
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">Karte</div>
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">ZetaSearch</div>
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">Visumo</div>
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">
+                    <a href="https://www.mention-me.com/" target="_blank" class="link-custom">MentionMe（Referral Marketing）</a>
+                  </div>
+                  <div class="pb-1 pb-2 border-b border-slate-200 text-sm text-slate-600">MA（Marketing Automation）</div>
+                </div>
+              </div>
+
+              <!-- Enterprise Business Systems -->
+              <div class="pt-4">
+                <div class="text-base font-bold text-slate-900 mb-3">Enterprise Business Systems</div>
+                <div class="space-y-0">
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">Dynamics 365(Business Central, CRM)</div>
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">POS (Oracle MICROS / Cegid)</div>
+                  <div class="pb-1 pb-2 border-b border-slate-200 text-sm text-slate-600">CRM（SugarCRM, Siebel）</div>
+                </div>
+              </div>
+
+              <!-- Tools & Collaboration -->
+              <div class="pt-4">
+                <div class="text-base font-bold text-slate-900 mb-3">Tools & Collaboration</div>
+                <div class="space-y-0">
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">Jira</div>
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">Backlog</div>
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">Confluence</div>
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">Miro</div>
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">Visio</div>
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">MS-Project</div>
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">Figma</div>
+                  <div class="pb-1 border-b border-slate-100 last:border-0 text-sm text-slate-600">
+                    <a href="https://saucelabs.com/" class="link-custom">Sauce Labs</a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="works" class="mb-12">
-        <div class="border-t-2 border-slate-300 pt-8">
+
+
+ 
+      <section id="works" class="lg:mb-12">
+        <div class="border-t-2 border-slate-300 pt-6 md:pt-8">
           <button onclick="toggleAccordion('works-content')" class="w-full flex justify-between items-center text-left mb-6">
-            <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—Works</h2>
+            <h2 class="text-lg lg:text-2xl font-bold text-slate-900 uppercase tracking-wider">—Works</h2>
             <span class="accordion-icon text-2xl text-slate-600">−</span>
           </button>
           
           <div id="works-content" class="accordion-content">
-            <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+            <div class="hidden md:block bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
               <table class="w-full table-fixed text-left border-collapse">
                 <thead>
                   <tr class="bg-slate-50 border-b border-slate-200">
@@ -432,7 +556,7 @@
                       Shopifyスクラッチ開発
                     </td>
                     <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-                      ナチュラルな素材を使った癒やしの<br>Room/Bathグッズ仮想ショップ<br><br>
+                      ナチュラルな素材を使った癒やしの<br>Room/BathグッズECショップ<br><br>
                       <button onclick="toggleVideo('yourday-video', this)" class="text-xs link-custom cursor-pointer mb-2 hover:underline">
                         ✕ 動画を非表示にする
                       </button>
@@ -511,7 +635,7 @@
                       -パーソナライぜーション（Karte）
                     </td>
                     <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
-                      パーソナライゼーション施策の企画・実装
+                      パーソナライゼーション施策・実装
                     </td>
                     <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none "></td>
                   </tr>
@@ -593,14 +717,146 @@
                 </tbody>
               </table>
             </div>
+
+            <!-- Mobile View -->
+            <div class="block md:hidden space-y-0">
+              <!-- 個人プロジェクト -->
+              <div class="pt-6 pb-6 border-t border-slate-400 border-b border-slate-300">
+                <div class="text-base font-bold text-slate-900 mb-4 border-b border-slate-200">個人プロジェクト</div>
+                
+                <div>
+                  <div class="text-sm font-bold text-slate-900 mb-1">Shopifyスクラッチ開発</div>
+                  <div class="text-xs text-slate-600 leading-relaxed mb-3">
+                    ナチュラルな素材を使った癒やしのRoom/BathグッズECショップ
+                  </div>
+                  
+                  <button onclick="toggleVideo('yourday-video-mobile', this)" class="text-xs link-custom cursor-pointer mb-2 hover:underline">
+                    ✕ 動画を非表示にする
+                  </button>
+                  <br>
+                  <a id="yourday-video-mobile" href="assets/videos/yourday-PC.mp4" target="_blank" class="block mb-3">
+                    <video width="100%" autoplay muted loop class="cursor-pointer">
+                      <source src="assets/videos/yourday-PC.mp4" type="video/mp4">
+                    </video>
+                  </a>
+                  
+                  <div class="text-xs text-slate-600 leading-relaxed">
+                    <div class="mb-2 mt-4">動画:（パスワード不要）</div>
+                    <div class="mb-1 pl-5 ">・<a href="assets/videos/yourday-PC.mp4" target="_blank" class="link-custom">ショップ-PC</a></div>
+                    <div class="mb-1 pl-5 ">・<a href="assets/videos/yourday-Mobile.mp4" target="_blank" class="link-custom">ショップ-Mobile</a></div>
+                    <div class="mb-3 pl-5 ">・<a href="assets/videos/yourday-editor.mp4" target="_blank" class="link-custom">エディター</a></div>
+                    
+                    <div class="mb-0">開発環境:（パスワード必要）</div>
+                    <div class="text-[11px] text-[#990000] mb-2">※お気軽にお問い合わせください。</div>
+                    <div class="pl-5 ">・<a href="https://yourday-dev-p.myshopify.com/" target="_blank" class="link-custom">ショップ</a></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Digital Commerce & Marketing -->
+              <div class="pt-6 pb-6 border-b border-slate-200">
+                <div class="text-base font-bold text-slate-900 mb-4 border-b border-slate-200">Digital Commerce & Marketing</div>
+                
+                <div class="mb-4">
+                  <div class="text-sm font-bold text-slate-900 mb-1">Shopify UI/UX改善</div>
+                  <div class="text-xs text-slate-600 leading-relaxed mb-1">
+                    ファッションブランドのECサイトのUI/UX改善
+                  </div>
+                  <div class="text-xs pl-5 text-slate-600 leading-relaxed">
+                    <a class="link-custom" href="https://www.skagen.com/ja-jp/" target="_blank">skagen.com</a><br>
+                    <a class="link-custom" href="https://www.fossil.com/ja-jp/" target="_blank">fossil.com</a>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <div class="text-sm font-bold text-slate-900 mb-1">AEM UI/UX改善</div>
+                  <div class="text-xs text-slate-600 leading-relaxed mb-1">
+                    大規模ECにおける継続的改善・機能開発
+                  </div>
+                  <div class="text-xs pl-5 text-slate-600 leading-relaxed">
+                    <a class="link-custom" href="https://qvc.jp/" target="_blank">qvc.jp</a>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <div class="text-sm font-bold text-slate-900 mb-1">パーソナライゼーション(Karte)</div>
+                  <div class="text-xs text-slate-600 leading-relaxed">
+                    パーソナライゼーション施策・実装
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <div class="text-sm font-bold text-slate-900 mb-1">検索エンジンリプレースメント(ZetaSearch)</div>
+                  <div class="text-xs text-slate-600 leading-relaxed">
+                    サイト内検索機能の刷新・最適化
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <div class="text-sm font-bold text-slate-900 mb-1">Global Analytics Standardization(Adobe Analytics)</div>
+                  <div class="text-xs text-slate-600 leading-relaxed">
+                    グローバル標準と日本独自要件のGap分析、レポート設計・実装
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <div class="text-sm font-bold text-slate-900 mb-1">Referral Marketing(MentionMe)</div>
+                  <div class="text-xs text-slate-600 leading-relaxed">
+                    リファラルマーケティング施策の企画・実装
+                  </div>
+                </div>
+
+                <div>
+                  <div class="text-sm font-bold text-slate-900 mb-1">その他、Web/Mobile AppのUI・機能改善</div>
+                  <div class="text-xs pl-5 text-slate-600 leading-relaxed">
+                    <a class="link-custom" href="https://apps.apple.com/jp/app/qvc%E3%82%B8%E3%83%A3%E3%83%91%E3%83%B3-%E3%81%8A%E8%B2%B7%E3%81%84%E7%89%A9%E3%83%81%E3%83%A3%E3%83%B3%E3%83%8D%E3%83%ABqvc/id410794067">iOS</a> ／ 
+                    <a class="link-custom" href="https://play.google.com/store/apps/details?id=jp.qvc&hl=ja">Android</a> ／ 
+                    <a class="link-custom" href="https://qvc.jp/">Web</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Enterprise Systems -->
+              <div class="pt-6 pb-6 border-b border-slate-300 last:border-0">
+                <div class="text-base font-bold text-slate-900 mb-4 border-b border-slate-200">Enterprise Systems</div>
+                
+                <div class="mb-4">
+                  <div class="text-sm font-bold text-slate-900 mb-1">POSシステム刷新(Oracle Micros)</div>
+                  <div class="text-xs text-slate-600 leading-relaxed">
+                    店舗販売管理システムの導入
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <div class="text-sm font-bold text-slate-900 mb-1">MS-Dynamics 365 Business Central 保守・機能改善</div>
+                  <div class="text-xs text-slate-600 leading-relaxed">
+                    基幹システム(受注管理)の機能改善、不具合対応
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <div class="text-sm font-bold text-slate-900 mb-1">MS-Dynamics 365(CRM)保守・機能改善</div>
+                  <div class="text-xs text-slate-600 leading-relaxed">
+                    顧客管理システムの機能改善、不具合対応
+                  </div>
+                </div>
+
+                <div>
+                  <div class="text-sm font-bold text-slate-900 mb-2">その他、RAP、社内ツールの開発、改善など</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
- 
-      <section id="authorized" class="mb-12">
-        <div class="border-t-2 border-slate-300 pt-8">
+
+
+
+
+      <section id="authorized" class="mb-8">
+        <div class="border-t-2 border-slate-300 pt-6 md:pt-8">
           <button onclick="toggleAccordion('authorized-content')" class="w-full flex justify-between items-center text-left mb-6">
-            <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—Authorized ONLY</h2>
+            <h2 class="text-lg lg:text-2xl font-bold text-slate-900 uppercase tracking-wider">—Authorized ONLY</h2>
             <span class="accordion-icon text-2xl text-slate-600">+</span>
           </button>
           
@@ -627,7 +883,7 @@
     </div>
   </div>
 
-  <footer class="py-8 px-6 mt-4 bg-slate-900 text-slate-400 text-center text-sm">
+  <footer class="py-8 px-6 bg-slate-900 text-slate-400 text-center text-sm">
     <p>&copy; 2026 Sora's Portfolio. All rights reserved.</p>
   </footer>
 
@@ -635,13 +891,22 @@
     // 1. アコーディオンの開閉を管理する関数
     function toggleAccordion(id) {
       const content = document.getElementById(id);
-      const button = content.previousElementSibling;
+      // ボタンを正しく見つける - 直前の要素がDIVの場合はその前を探す
+      let button = content.previousElementSibling;
+      if (button && button.tagName === 'DIV') {
+        button = button.previousElementSibling;
+      }
       const icon = button.querySelector('.accordion-icon');
 
-      content.classList.toggle('hidden');
+      // AUTHORIZED ONLYだけ特別扱い(セキュリティのため完全非表示)
+      if (id === 'authorized-content') {
+        content.classList.toggle('hidden');
+      } else {
+        content.classList.toggle('closed');
+      }
 
       // 状態に合わせてアイコンを切り替える
-      if (content.classList.contains('hidden')) {
+      if (content.classList.contains('hidden') || content.classList.contains('closed')) {
         icon.textContent = '+';
       } else {
         icon.textContent = '−';
@@ -688,6 +953,12 @@
         videoElement.classList.add('hidden');
         button.textContent = '📹 動画を表示する';
       }
+    }
+
+    // モバイルメニューの開閉
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
     }
   </script>
 
