@@ -21,6 +21,7 @@
       flex-direction: column;
     }
     
+    /* アコーディオンのトグル */
     .accordion-content {
       max-height: 5000px;
       overflow: hidden;
@@ -30,10 +31,16 @@
     .accordion-content.closed {
       max-height: 0;
     }
+    
+    /* カスタムリンク色 */
     .link-custom {
       color: #663399;
       transition: all 0.2s;
     }
+    /* .link-custom:hover {
+      color: #CC66FF;
+      text-decoration: underline;
+    } */
     .link-custom-2 {
       color: #334155;
       transition: all 0.2s;
@@ -43,7 +50,7 @@
       color: #CC66FF;
       text-decoration: underline;
     }
-
+    /* カスタムボーダー - インデント後から線を引く */
     tr.row-indent {
       position: relative;
     }
@@ -97,7 +104,7 @@
       
       <h1 class="text-4xl lg:text-5xl font-bold text-slate-900 mb-16 text-center">Noa's Portfolio</h1>
       
-      <nav class="mb-12">
+      <nav class="mb-16">
         <ul class="space-y-2 text-lg text-center">
           <li><a href="#about" class="link-custom-2 transition uppercase tracking-wide">About</a></li>
           <li><a href="#experience" class="link-custom-2 transition uppercase tracking-wide">Experience</a></li>
@@ -109,14 +116,14 @@
       <section id="about" class="mb-2 lg:mb-12">
         <div class="border-t-2 border-slate-300 pt-6 md:pt-8">
           <button onclick="toggleAccordion('about-content')" class="w-full flex justify-between items-center text-left mb-6">
-            <h2 class="text-xl lg:text-2xl font-bold text-slate-900 uppercase tracking-wider">—About</h2>
+            <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—About</h2>
             <span class="accordion-icon text-2xl text-slate-600">−</span>
           </button>
           
           <div class="block md:hidden border-b border-slate-400 mb-6"></div>
 
           <div id="about-content" class="accordion-content">
-            <div class="bg-white rounded-xl border border-slate-200 p-10 pb-3 shadow-sm">
+            <div class="bg-white rounded-xl border border-slate-200 p-10 shadow-sm">
               <p class="text-base lg:text-xl text-gray-600 mb-8 text-center">
                 ご相談から開発・実装、成長まで一貫対応<br>
                 <span class="text-base lg:text-xl font-semibold text-gray-600 text-center">
@@ -133,9 +140,7 @@
                   小売業界を中心に、約20年にわたりDigital（ECサイト、アプリ）と基幹システムにおいて、エンジニア、ビジネスアナリスト、プロジェクトマネージャー、プロダクトマネージャーを経験してきました。それぞれの役割の視点を持ち、プロジェクトを推進していけるところが強みです。企画・ロードマップ作成、課題整理・要件定義から開発・実装、リリース後のデータ分析と継続改善まで、各フェーズに必要なことを見極めながら、一貫してサポートします。
                 </p>
                 <p>
-                  海外留学と外資系企業での実務経験を通じて培った国際的な視点も強みの一つです。言葉や文化、立場の違いを超えた円滑なコミュニケーション、戦略的思考と柔軟な判断力、そして関係者を巻き込むリーダーシップで、スピード感を持ってプロジェクトを推進します。困難な局面でも諦めず、やり抜いてきました。
-                  
-                  <p>あなたのビジネスの成功に寄り添います。お気軽にご相談ください。</p>
+                  海外留学と外資系企業での実務経験を通じて培った国際的な視点も強みの一つです。言葉や文化、立場の違いを超えた円滑なコミュニケーション、戦略的思考と柔軟な判断力、そして関係者を巻き込むリーダーシップで、スピード感を持ってプロジェクトを推進します。困難な局面でも諦めず、やり抜いてきました。お気軽にご相談ください。あなたのビジネスの成功に寄り添います。
                 </p>
               </div>
             </div>
@@ -146,7 +151,7 @@
       <section id="experience" class="mb-2 lg:mb-12">
         <div class="md:border-t-2 border-slate-300 md:pt-8">
           <button onclick="toggleAccordion('experience-content')" class="w-full flex justify-between items-center text-left mb-6">
-            <h2 class="text-lg lg:text-2xl font-bold text-slate-900 uppercase tracking-wider">—Experience</h2>
+            <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—Experience</h2>
             <span class="accordion-icon text-2xl text-slate-600">−</span>
           </button>
           
@@ -220,7 +225,7 @@
       <section id="skills" class="lg:mb-12">
         <div class="lg:border-t-2 border-slate-300 md:pt-8">
           <button onclick="toggleAccordion('skills-content')" class="w-full flex justify-between items-center text-left mb-6">
-            <h2 class="text-lg lg:text-2xl font-bold text-slate-900 uppercase tracking-wider">—Skills</h2>
+            <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—Skills</h2>
             <span class="accordion-icon text-2xl text-slate-600">−</span>
           </button>
 
@@ -290,8 +295,14 @@
                   </tr>
                   <tr>
                     <td class="px-6 py-2 leading-none"></td>
-                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-300">
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-100">
                       Git ／ GitHub
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-2 leading-none"></td>
+                    <td class="px-6 py-2 align-top text-sm text-left leading-none border-b border-slate-300">
+                      AI-Assisted Development (Claude Code, Antigravity, Codex)
                     </td>
                   </tr>
                   <tr>
@@ -458,7 +469,8 @@
                   <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">WordPress</div>
                   <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">SQL</div>
                   <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">Docker</div>
-                  <div class="pb-1 pb-2 border-b border-slate-200 text-sm text-slate-600">Git ／ GitHub</div>
+                  <div class="pb-1 border-b border-slate-100 text-sm text-slate-600">Git ／ GitHub</div>
+                  <div class="pb-1 pb-2 border-b border-slate-200 text-sm text-slate-600">AI-Assisted Development（Claude Code, Antigravity, Codex）</div>
                 </div>
               </div>
 
@@ -527,7 +539,7 @@
       <section id="works" class="lg:mb-12">
         <div class="border-t-2 border-slate-300 pt-6 md:pt-8">
           <button onclick="toggleAccordion('works-content')" class="w-full flex justify-between items-center text-left mb-6">
-            <h2 class="text-lg lg:text-2xl font-bold text-slate-900 uppercase tracking-wider">—Works</h2>
+            <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—Works</h2>
             <span class="accordion-icon text-2xl text-slate-600">−</span>
           </button>
           
@@ -548,18 +560,17 @@
                   </tr>
                 </thead>
                 <tbody class="text-slate-600">
-                  <tr class="row-indent">
+                  <tr>
                     <td colspan="3" class="px-6 pt-5 pb-1 align-top text-sm font-bold leading-none text-slate-800">
                       個人プロジェクト
                     </td>
                   </tr>
                   <tr>
-                    <td colspan="2" class="pl-20 px-6 pt-5 pb-3 align-top text-sm leading-none ">
+                    <td colspan="2" class="pl-20 px-6 pt-5 pb-1 align-top text-sm leading-none ">
                       Shopifyスクラッチ開発
                     </td>
                     <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none ">
                       ナチュラルな素材を使った癒やしの<br>Room/BathグッズECショップ<br><br>
-                      Shopifyフルクラッチ開発で、ブランドの世界観を最大限に表現<br><br>
                       <button onclick="toggleVideo('yourday-video', this)" class="text-xs link-custom cursor-pointer mb-2 hover:underline">
                         ✕ 動画を非表示にする
                       </button>
@@ -592,34 +603,6 @@
                       </ul>
                     </td>
                   </tr>
-
-                  <tr>
-                    <td colspan="2" class="pl-20 px-6 pt-11 pb-1 align-top text-sm leading-none ">
-                      Shopifyテーマ開発
-                    </td>
-                    <td class="px-6 pt-10 pb-1 align-top text-sm text-left leading-none ">              
-                      <ul>
-                        <li><a href="assets/videos/i-trust-cosme-pc.mp4" target="_blank" class="link-custom">コスメショップ</a></li>
-                        <br>
-                        <li>低コスト・短期間ながら必要な機能を備えたでショップを構築</li>
-                      </ul>
-
-                    </td>
-                    <td class="px-6 pt-10 pb-1 align-top text-sm text-left leading-none ">
-                      <ul>
-                        <li class="pb-2">動画:</li>
-                        <li class="pb-1">・
-                          <a href="assets/videos/i-trust-cosme-pc.mp4" target="_blank" class="link-custom">ショップ-PC</a>
-                        </li>
-                        <li class="pb-1">・
-                          <a href="assets/videos/i-trust-cosme-mobile.mp4" target="_blank" class="link-custom">ショップ-Mobile</a>
-                        </li>
-                      </ul>
-                    </td>
-                  </tr>
-
-
-
                   <tr class="row-indent">
                     <td colspan="2" class="pl-20 px-6 pt-5 pb-1 align-top text-sm leading-none "></td>
                     <td class="px-6 pt-5 pb-1 align-top text-sm text-left leading-none "></td>
@@ -784,24 +767,8 @@
                 </div>
               </div>
 
-              <div>
-                <div class="text-sm font-bold text-slate-900 mb-1 mt-5">Shopifyテーマ開発</div>
-                <div class="text-xs text-slate-600 leading-relaxed mb-3">
-                    <a href="assets/videos/i-trust-cosme-pc.mp4" target="_blank" class="link-custom">コスメショップ</a><br>
-                    低コスト・短期間ながら必要な機能を備えたでショップを構築
-              </div>
-
-                  
-              <div class="text-xs text-slate-600 leading-relaxed">
-                  <div class="mb-2 mt-4">動画:</div>
-                    <div class="mb-1 pl-5 ">・<a href="assets/videos/i-trust-cosme-pc.mp4" target="_blank" class="link-custom">ショップ-PC</a></div>
-                    <div class="mb-1 pl-5 ">・<a href="assets/videos/i-trust-cosme-mobile.mp4" target="_blank" class="link-custom">ショップ-Mobile</a></div>
-                  </div>
-                </div>
-              </div>
-
               <!-- Digital Commerce & Marketing -->
-              <div class="pt-8 pb-6 border-b border-slate-200">
+              <div class="pt-6 pb-6 border-b border-slate-200">
                 <div class="text-base font-bold text-slate-900 mb-4 border-b border-slate-200">Digital Commerce & Marketing</div>
                 
                 <div class="mb-4">
@@ -856,9 +823,9 @@
                 <div>
                   <div class="text-sm font-bold text-slate-900 mb-1">その他、Web/Mobile AppのUI・機能改善</div>
                   <div class="text-xs pl-5 text-slate-600 leading-relaxed">
-                    <a class="link-custom" href="https://apps.apple.com/jp/app/qvc%E3%82%B8%E3%83%A3%E3%83%91%E3%83%B3-%E3%81%8A%E8%B2%B7%E3%81%84%E7%89%A9%E3%83%81%E3%83%A3%E3%83%B3%E3%83%8D%E3%83%ABqvc/id410794067" target="_blank">iOS</a> ／ 
-                    <a class="link-custom" href="https://play.google.com/store/apps/details?id=jp.qvc&hl=ja" target="_blank">Android</a> ／ 
-                    <a class="link-custom" href="https://qvc.jp/" target="_blank">Web</a>
+                    <a class="link-custom" href="https://apps.apple.com/jp/app/qvc%E3%82%B8%E3%83%A3%E3%83%91%E3%83%B3-%E3%81%8A%E8%B2%B7%E3%81%84%E7%89%A9%E3%83%81%E3%83%A3%E3%83%B3%E3%83%8D%E3%83%ABqvc/id410794067">iOS</a> ／ 
+                    <a class="link-custom" href="https://play.google.com/store/apps/details?id=jp.qvc&hl=ja">Android</a> ／ 
+                    <a class="link-custom" href="https://qvc.jp/">Web</a>
                   </div>
                 </div>
               </div>
@@ -903,7 +870,7 @@
       <section id="authorized" class="mb-8">
         <div class="border-t-2 border-slate-300 pt-6 md:pt-8">
           <button onclick="toggleAccordion('authorized-content')" class="w-full flex justify-between items-center text-left mb-6">
-            <h2 class="text-lg lg:text-2xl font-bold text-slate-900 uppercase tracking-wider">—Authorized ONLY</h2>
+            <h2 class="text-2xl font-bold text-slate-900 uppercase tracking-wider">—Authorized ONLY</h2>
             <span class="accordion-icon text-2xl text-slate-600">+</span>
           </button>
           
@@ -930,11 +897,12 @@
     </div>
   </div>
 
-  <footer class="py-8 px-6 mt-20 bg-slate-900 text-slate-400 text-center text-sm">
+  <footer class="py-8 px-6 bg-slate-900 text-slate-400 text-center text-sm">
     <p>&copy; 2026 Noa's Portfolio. All rights reserved.</p>
   </footer>
 
-  <script>
+
+<script>
     // 1. アコーディオンの開閉を管理する関数
     function toggleAccordion(id) {
       const content = document.getElementById(id);
@@ -1008,6 +976,78 @@
       menu.classList.toggle('hidden');
     }
   </script>
+
+
+  <!-- <script>
+    // 1. アコーディオンの開閉を管理する関数
+    function toggleAccordion(id) {
+      const content = document.getElementById(id);
+      const button = content.previousElementSibling;
+      const icon = button.querySelector('.accordion-icon');
+
+      // AUTHORIZED ONLYだけ特別扱い(セキュリティのため完全非表示)
+      if (id === 'authorized-content') {
+        content.classList.toggle('hidden');
+      } else {
+        content.classList.toggle('closed');
+      }
+
+      // 状態に合わせてアイコンを切り替える
+      if (content.classList.contains('hidden') || content.classList.contains('closed')) {
+        icon.textContent = '+';
+      } else {
+        icon.textContent = '−';
+      }
+    }
+
+    // 2. パスコードを判定する関数
+    function handleAuth() {
+      const input = document.getElementById('passcode-input').value.trim();
+      const infoArea = document.getElementById('authorized-info');
+      
+      const secret = "___AUTH_SECRET_PLACEHOLDER___"; 
+      const mail = "___AUTH_MAIL_PLACEHOLDER___";
+
+      if (input === atob(secret)) {
+        document.getElementById('unlock-area').classList.add('hidden');
+        const decodedMail = atob(mail);
+        infoArea.innerHTML = `
+          <div class="space-y-2">
+            <p class="text-xs text-slate-400 uppercase tracking-widest">Email Address</p>
+            <a href="mailto:${decodedMail}" class="text-xl font-light link-custom border-b border-slate-200 pb-1">
+              ${decodedMail}
+            </a>
+            <p class="text-xs text-slate-400 mt-4 leading-relaxed">
+              ※返信には1〜2営業日ほどいただく場合がございます。
+            </p>
+          </div>
+        `;
+        infoArea.classList.remove('hidden');
+      } else {
+        const error = document.getElementById('auth-error');
+        error.classList.remove('hidden');
+        document.getElementById('passcode-input').value = "";
+      }
+    }
+
+    // 動画の表示/非表示を切り替える関数
+    function toggleVideo(videoId, button) {
+      const videoElement = document.getElementById(videoId);
+      if (videoElement.classList.contains('hidden')) {
+        videoElement.classList.remove('hidden');
+        button.textContent = '✕ 非表示にする';
+      } else {
+        videoElement.classList.add('hidden');
+        button.textContent = '📹 動画を表示する';
+      }
+    }
+
+    // モバイルメニューの開閉
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+  </script> -->
 
 </body>
 </html>
